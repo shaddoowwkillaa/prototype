@@ -20,7 +20,21 @@ KEYWORDS: tuple[str, ...] = (
     "результаты",
 )
 CONFIG_PATH = Path(__file__).resolve().parent.parent / "config" / "target_urls.json"
-USER_AGENT = "Mozilla/5.0 (compatible; AdmissionCrawler/1.0)"
+BROWSER_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": (
+        "text/html,application/xhtml+xml,application/xml;q=0.9,"
+        "image/avif,image/webp,*/*;q=0.8"
+    ),
+    "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Cache-Control": "no-cache",
+    "Pragma": "no-cache",
+    "Upgrade-Insecure-Requests": "1",
+}
 MAX_FILE_SIZE = 10 * 1024 * 1024
 REQUEST_DELAY = 0.3
 
@@ -92,11 +106,27 @@ async def _crawl_site(
 ) -> tuple[str, list[str]]:
     try:
         async with session.get(domain_url, allow_redirects=True) as response:
-            response.raise_for_status()
+            if response.status != 200:
+                logging.warning(
+                    "Сайт %s вернул HTTP %s (итоговый URL: %s)",
+                    domain_url,
+                    response.status,
+                    response.url,
+                )
+                return domain_url, []
             page_url = str(response.url)
             html = await response.text(errors="ignore")
-    except (aiohttp.ClientError, asyncio.TimeoutError, UnicodeError):
-        logging.warning("Не удалось загрузить сайт: %s", domain_url)
+    except asyncio.TimeoutError:
+        logging.warning("Тайм-аут при загрузке сайта: %s", domain_url)
+        return domain_url, []
+    except aiohttp.ClientConnectorError as error:
+        logging.warning("Ошибка подключения к %s: %s", domain_url, error)
+        return domain_url, []
+    except aiohttp.ClientError as error:
+        logging.warning("HTTP-ошибка при загрузке %s: %s", domain_url, error)
+        return domain_url, []
+    except UnicodeError as error:
+        logging.warning("Ошибка декодирования ответа %s: %s", domain_url, error)
         return domain_url, []
     finally:
         await asyncio.sleep(REQUEST_DELAY)
@@ -134,15 +164,19 @@ async def scan_university() -> dict[str, list[str]]:
     if not target_urls:
         return {}
 
-    timeout = aiohttp.ClientTimeout(total=15)
-    connector = aiohttp.TCPConnector(limit=3)
-    headers = {"User-Agent": USER_AGENT}
+    timeout = aiohttp.ClientTimeout(
+        total=20,
+        connect=10,
+        sock_connect=10,
+        sock_read=20,
+    )
+    connector = aiohttp.TCPConnector(limit=3, ttl_dns_cache=300)
 
     try:
         async with aiohttp.ClientSession(
             timeout=timeout,
             connector=connector,
-            headers=headers,
+            headers=BROWSER_HEADERS,
         ) as session:
             results = await asyncio.gather(
                 *(_crawl_site(session, url) for url in target_urls)
