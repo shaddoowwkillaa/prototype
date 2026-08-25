@@ -1,10 +1,7 @@
-httpx
-playwright
+aiogram
+aiohttp
+python-dotenv
 beautifulsoup4
 pdfplumber
-paddleocr
-paddlepaddle
+playwright
 rapidfuzz
-aiogram
-python-dotenv
-aiohttp
