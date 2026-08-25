@@ -1,12 +1,16 @@
 import io
+import logging
 import asyncio
 from urllib.parse import urljoin, urlparse
 import aiohttp
 from bs4 import BeautifulSoup
 import pdfplumber
 
+# Настройка логирования для отслеживания в Render
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+
 # Ключевые слова для фильтрации целевых ссылок
-TARGET_KEYWORDS = TARGET_KEYWORDS = [
+TARGET_KEYWORDS = [
     # Русскоязычные корни и слова
     'абитуриент',   # Покроет: абитуриенту, абитуриентам, абитуриентский
     'поступл',      # Покроет: поступление, поступающим, поступать
@@ -37,8 +41,8 @@ async def _extract_pdf_text(pdf_bytes: bytes) -> str:
                     page_text = page.extract_text()
                     if page_text:
                         text += page_text + "\n"
-        except Exception:
-            pass
+        except Exception as e:
+            logging.error(f"  ❌ Ошибка чтения PDF: {e}")
         return text
 
     return await asyncio.to_thread(parse_pdf)
@@ -50,6 +54,8 @@ async def scan_university(start_url: str, surname: str, max_depth: int = 2) -> l
     surname_lower = surname.strip().lower()
     base_domain = urlparse(start_url).netloc
 
+    logging.info(f"🔎 Старт поиска для: '{surname}' на {start_url}")
+
     async with aiohttp.ClientSession(headers={"User-Agent": "Mozilla/5.0"}) as session:
 
         async def parse(url: str, current_depth: int):
@@ -57,18 +63,23 @@ async def scan_university(start_url: str, surname: str, max_depth: int = 2) -> l
                 return
             visited.add(url)
 
+            logging.info(f"  [Уровень {current_depth}] Сканирование: {url}")
+
             try:
                 async with session.get(url, timeout=15, ssl=False) as response:
                     if response.status != 200:
+                        logging.warning(f"  ⚠️ Ошибка {response.status} на {url}")
                         return
 
                     content_type = response.headers.get("Content-Type", "").lower()
 
                     # 1. Проверка PDF-документов
                     if "application/pdf" in content_type or url.lower().endswith(".pdf"):
+                        logging.info(f"  📄 Чтение PDF: {url}")
                         pdf_bytes = await response.read()
                         pdf_text = await _extract_pdf_text(pdf_bytes)
                         if surname_lower in pdf_text.lower():
+                            logging.info(f"  ✅ НАЙДЕНО В PDF: {url}")
                             found_urls.append(url)
                         return
 
@@ -78,6 +89,7 @@ async def scan_university(start_url: str, surname: str, max_depth: int = 2) -> l
                     text_content = soup.get_text()
 
                     if surname_lower in text_content.lower():
+                        logging.info(f"  ✅ НАЙДЕНО НА СТРАНИЦЕ: {url}")
                         found_urls.append(url)
 
                     # 3. Поиск ссылок для перехода на уровень 2
@@ -101,8 +113,8 @@ async def scan_university(start_url: str, surname: str, max_depth: int = 2) -> l
                         for next_url in links_to_visit[:6]:
                             await parse(next_url, current_depth + 1)
 
-            except Exception:
-                pass
+            except Exception as e:
+                logging.error(f"  ❌ Ошибка загрузки {url}: {e}")
 
         await parse(start_url, 1)
 
