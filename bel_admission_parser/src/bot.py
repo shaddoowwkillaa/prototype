@@ -12,7 +12,7 @@ from aiogram import Bot, Dispatcher, Router
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 
-from .crawler import find_admission_links
+from .crawler import scan_university
 from .ocr_parser import extract_text_from_url
 from .search import SearchMatch, parse_search_queries, search_surname
 
