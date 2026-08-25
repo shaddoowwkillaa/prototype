@@ -1,113 +1,154 @@
-import io
-import gc
-import logging
+from __future__ import annotations
+
 import asyncio
+import gc
+import json
+import logging
+from pathlib import Path
+from typing import Any
 from urllib.parse import urljoin, urlparse
+
 import aiohttp
 from bs4 import BeautifulSoup
-import pdfplumber
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+KEYWORDS: tuple[str, ...] = (
+    "приказ",
+    "зачисл",
+    "список",
+    "абитуриент",
+    "ход приема",
+    "результаты",
+)
+CONFIG_PATH = Path(__file__).resolve().parent.parent / "config" / "target_urls.json"
+USER_AGENT = "Mozilla/5.0 (compatible; AdmissionCrawler/1.0)"
+MAX_FILE_SIZE = 10 * 1024 * 1024
+REQUEST_DELAY = 0.3
 
-TARGET_KEYWORDS = [
-    'абитуриент', 'поступл', 'приемн', 'зачисл', 'список', 'ход', 
-    'колл', 'дневн', 'заочн', 'бюджет', 'платн', 'результ', 'свед',
-    'abi', 'abitur', 'priem', 'postup', 'zachislen', 'spisok', 'spiski', 'pdf'
-]
 
-async def _extract_pdf_text(pdf_bytes: bytes) -> str:
-    def parse_pdf():
-        text = ""
-        try:
-            with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
-                for page in pdf.pages:
-                    page_text = page.extract_text()
-                    if page_text:
-                        text += page_text + "\n"
-        except Exception as e:
-            logging.error(f"  ❌ Ошибка чтения PDF: {e}")
-        finally:
-            gc.collect()  # Освобождаем RAM после каждого PDF
-        return text
+def _normalize_host(url: str) -> str:
+    host = (urlparse(url).hostname or "").lower().rstrip(".")
+    return host.removeprefix("www.")
 
-    return await asyncio.to_thread(parse_pdf)
 
-async def scan_university(start_url: str, surname: str, max_depth: int = 2) -> list[str]:
-    visited = set()
-    found_urls = []
-    surname_lower = surname.strip().lower()
-    base_domain = urlparse(start_url).netloc
+def _is_pdf(url: str) -> bool:
+    return urlparse(url).path.lower().endswith(".pdf")
 
-    logging.info(f"🔎 Старт поиска для: '{surname}' на {start_url}")
 
-    # Ограничиваем количество одновременных соединений (не больше 3)
+def _is_allowed_link(page_url: str, link_url: str) -> bool:
+    parsed = urlparse(link_url)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        return False
+    return _is_pdf(link_url) or _normalize_host(page_url) == _normalize_host(link_url)
+
+
+async def _read_target_urls() -> list[str]:
+    def read_json() -> Any:
+        with CONFIG_PATH.open("r", encoding="utf-8") as file:
+            return json.load(file)
+
+    try:
+        data = await asyncio.to_thread(read_json)
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        logging.exception("Не удалось прочитать %s", CONFIG_PATH)
+        return []
+
+    if not isinstance(data, list):
+        return []
+
+    urls: list[str] = []
+    for item in data:
+        url: Any = item.get("url") if isinstance(item, dict) else item
+        if isinstance(url, str) and urlparse(url).scheme in {"http", "https"}:
+            urls.append(url)
+    return list(dict.fromkeys(urls))
+
+
+async def _pdf_is_allowed(session: aiohttp.ClientSession, url: str) -> bool:
+    try:
+        async with session.head(url, allow_redirects=True) as response:
+            if response.status == 405:
+                async with session.get(url, allow_redirects=True) as get_response:
+                    get_response.raise_for_status()
+                    content_length = get_response.content_length
+            else:
+                response.raise_for_status()
+                content_length = response.content_length
+
+            if content_length is not None and content_length > MAX_FILE_SIZE:
+                logging.warning("PDF больше 10 МБ пропущен: %s", url)
+                return False
+            return True
+    except (aiohttp.ClientError, asyncio.TimeoutError):
+        logging.warning("Не удалось проверить PDF: %s", url)
+        return False
+    finally:
+        gc.collect()
+        await asyncio.sleep(REQUEST_DELAY)
+
+
+async def _crawl_site(
+    session: aiohttp.ClientSession,
+    domain_url: str,
+) -> tuple[str, list[str]]:
+    try:
+        async with session.get(domain_url, allow_redirects=True) as response:
+            response.raise_for_status()
+            page_url = str(response.url)
+            html = await response.text(errors="ignore")
+    except (aiohttp.ClientError, asyncio.TimeoutError, UnicodeError):
+        logging.warning("Не удалось загрузить сайт: %s", domain_url)
+        return domain_url, []
+    finally:
+        await asyncio.sleep(REQUEST_DELAY)
+
+    soup: BeautifulSoup | None = None
+    try:
+        soup = BeautifulSoup(html, "html.parser")
+        candidates: list[str] = []
+        for anchor in soup.find_all("a", href=True):
+            href = str(anchor.get("href", "")).strip()
+            searchable = f"{href} {anchor.get_text(' ', strip=True)}".lower()
+            if not href or not any(keyword in searchable for keyword in KEYWORDS):
+                continue
+
+            absolute_url = urljoin(page_url, href)
+            if _is_allowed_link(page_url, absolute_url):
+                candidates.append(absolute_url)
+
+        links: list[str] = []
+        for link in dict.fromkeys(candidates):
+            if not _is_pdf(link) or await _pdf_is_allowed(session, link):
+                links.append(link)
+        return domain_url, links
+    except (AttributeError, TypeError, ValueError, UnicodeError):
+        logging.exception("Ошибка разбора страницы: %s", domain_url)
+        return domain_url, []
+    finally:
+        soup = None
+        html = ""
+        gc.collect()
+
+
+async def scan_university() -> dict[str, list[str]]:
+    target_urls = await _read_target_urls()
+    if not target_urls:
+        return {}
+
+    timeout = aiohttp.ClientTimeout(total=15)
     connector = aiohttp.TCPConnector(limit=3)
-    async with aiohttp.ClientSession(connector=connector, headers={"User-Agent": "Mozilla/5.0"}) as session:
+    headers = {"User-Agent": USER_AGENT}
 
-        async def parse(url: str, current_depth: int):
-            if url in visited or current_depth > max_depth:
-                return
-            visited.add(url)
+    try:
+        async with aiohttp.ClientSession(
+            timeout=timeout,
+            connector=connector,
+            headers=headers,
+        ) as session:
+            results = await asyncio.gather(
+                *(_crawl_site(session, url) for url in target_urls)
+            )
+    except (aiohttp.ClientError, asyncio.TimeoutError, RuntimeError):
+        logging.exception("Ошибка во время обхода сайтов")
+        return {url: [] for url in target_urls}
 
-            logging.info(f"  [Уровень {current_depth}] Сканирование: {url}")
-            await asyncio.sleep(0.3)  # Пауза для снижения нагрузки на CPU/RAM
-
-            try:
-                async with session.get(url, timeout=12, ssl=False) as response:
-                    if response.status != 200:
-                        return
-
-                    # Проверка размера файла (игнорируем гигабайтные сканы)
-                    content_length = response.headers.get("Content-Length")
-                    if content_length and int(content_length) > 10 * 1024 * 1024:
-                        logging.warning(f"  ⚠️ Файл слишком большой (>10MB), пропуск: {url}")
-                        return
-
-                    content_type = response.headers.get("Content-Type", "").lower()
-
-                    # 1. Проверка PDF
-                    if "application/pdf" in content_type or url.lower().endswith(".pdf"):
-                        logging.info(f"  📄 Чтение PDF: {url}")
-                        pdf_bytes = await response.read()
-                        pdf_text = await _extract_pdf_text(pdf_bytes)
-                        del pdf_bytes  # Очищаем бинарные данные из памяти
-                        
-                        if surname_lower in pdf_text.lower():
-                            logging.info(f"  ✅ НАЙДЕНО В PDF: {url}")
-                            found_urls.append(url)
-                        return
-
-                    # 2. Проверка HTML
-                    html = await response.text(errors="ignore")
-                    soup = BeautifulSoup(html, "html.parser")
-                    text_content = soup.get_text()
-
-                    if surname_lower in text_content.lower():
-                        logging.info(f"  ✅ НАЙДЕНО НА СТРАНИЦЕ: {url}")
-                        found_urls.append(url)
-
-                    # 3. Переход по ссылкам
-                    if current_depth < max_depth:
-                        links_to_visit = []
-                        for a_tag in soup.find_all("a", href=True):
-                            href = a_tag["href"].strip()
-                            full_url = urljoin(url, href)
-                            parsed_target = urlparse(full_url)
-
-                            if parsed_target.netloc == base_domain:
-                                link_text = a_tag.get_text().lower()
-                                link_url_lower = full_url.lower()
-
-                                if any(kw in link_url_lower or kw in link_text for kw in TARGET_KEYWORDS):
-                                    if full_url not in visited:
-                                        links_to_visit.append(full_url)
-
-                        for next_url in links_to_visit[:4]:
-                            await parse(next_url, current_depth + 1)
-
-            except Exception as e:
-                logging.error(f"  ❌ Ошибка загрузки {url}: {e}")
-
-        await parse(start_url, 1)
-
-    return found_urls
+    return dict(results)

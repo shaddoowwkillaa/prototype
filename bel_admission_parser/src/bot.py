@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 import os
 from collections.abc import Iterable
 from html import escape
-from pathlib import PurePosixPath
+from pathlib import Path, PurePosixPath
+from typing import Any
 from urllib.parse import unquote, urlparse
 
 from aiogram import Bot, Dispatcher, Router
@@ -18,13 +20,45 @@ from .search import SearchMatch, parse_search_queries, search_surname
 
 router = Router()
 MAX_MESSAGE_LENGTH = 4000
-UNIVERSITIES = {
-    "bsu.by": "БГУ",
-    "bsuir.by": "БГУИР",
-    "bntu.by": "БНТУ",
-    "bseu.by": "БГЭУ",
-    "mgkct.minskedu.gov.by": "МГКЦТ",
-}
+CONFIG_PATH = Path(__file__).parent.parent / "config" / "target_urls.json"
+
+
+def load_universities() -> dict[str, str]:
+    fallback = {"bsu.by": "БГУ", "bsuir.by": "БГУИР"}
+    if not CONFIG_PATH.exists():
+        return fallback
+
+    try:
+        with CONFIG_PATH.open("r", encoding="utf-8") as file:
+            data: Any = json.load(file)
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        logging.exception("Не удалось загрузить список вузов из %s", CONFIG_PATH)
+        return fallback
+
+    universities: dict[str, str] = {}
+    if isinstance(data, dict):
+        for domain, name in data.items():
+            if isinstance(domain, str) and isinstance(name, str):
+                host = (urlparse(domain).hostname or domain).removeprefix("www.")
+                universities[host.lower()] = name
+    elif isinstance(data, list):
+        for item in data:
+            if isinstance(item, str):
+                host = (urlparse(item).hostname or "").removeprefix("www.")
+                if host:
+                    universities[host.lower()] = host
+            elif isinstance(item, dict):
+                url = item.get("url")
+                name = item.get("name") or item.get("full_name")
+                if isinstance(url, str) and isinstance(name, str):
+                    host = (urlparse(url).hostname or "").removeprefix("www.")
+                    if host:
+                        universities[host.lower()] = name
+
+    return universities or fallback
+
+
+UNIVERSITIES = load_universities()
 
 
 def _split_message(text: str, limit: int = MAX_MESSAGE_LENGTH) -> Iterable[str]:
@@ -79,7 +113,7 @@ async def surname_handler(message: Message) -> None:
     await message.answer("Ищу совпадения по сайтам...")
 
     try:
-        links_by_domain = await find_admission_links()
+        links_by_domain = await scan_university()
         links = list(
             dict.fromkeys(
                 link
@@ -156,6 +190,14 @@ async def main() -> None:
     bot = Bot(token=token)
     dispatcher = Dispatcher()
     dispatcher.include_router(router)
+
+    info = await bot.get_webhook_info()
+    logging.info(
+        "Webhook: %s, pending: %s",
+        info.url,
+        info.pending_update_count,
+    )
+    await bot.delete_webhook(drop_pending_updates=True)
     await dispatcher.start_polling(bot)
 
 

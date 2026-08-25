@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import logging
 import os
 
 from aiogram import Bot, Dispatcher
@@ -38,6 +39,13 @@ async def main() -> None:
     dp.include_router(router)
 
     try:
+        info = await bot.get_webhook_info()
+        logging.info(
+            "Webhook: %s, pending: %s",
+            info.url,
+            info.pending_update_count,
+        )
+        await bot.delete_webhook(drop_pending_updates=True)
         await dp.start_polling(bot)
     finally:
         await bot.session.close()
