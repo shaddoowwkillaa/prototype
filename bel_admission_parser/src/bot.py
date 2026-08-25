@@ -1,0 +1,126 @@
+from __future__ import annotations
+
+import asyncio
+import logging
+import os
+from collections.abc import Iterable
+
+from aiogram import Bot, Dispatcher, Router
+from aiogram.filters import CommandStart
+from aiogram.types import Message
+
+from .crawler import find_admission_links
+from .ocr_parser import extract_text_from_url
+from .search import parse_search_queries, search_surname
+
+router = Router()
+MAX_MESSAGE_LENGTH = 4000
+
+
+def _split_message(text: str, limit: int = MAX_MESSAGE_LENGTH) -> Iterable[str]:
+    while len(text) > limit:
+        split_at = text.rfind("\n", 0, limit)
+        if split_at <= 0:
+            split_at = limit
+        yield text[:split_at]
+        text = text[split_at:].lstrip("\n")
+    if text:
+        yield text
+
+
+async def _search_url(
+    url: str,
+    queries: list[str],
+) -> tuple[str, dict[str, list[str]]]:
+    try:
+        text = await extract_text_from_url(url)
+        matches = await asyncio.to_thread(search_surname, text, queries)
+        return url, matches
+    except Exception:
+        logging.exception("Не удалось обработать ссылку %s", url)
+        return url, {query: [] for query in queries}
+
+
+@router.message(CommandStart())
+async def start_handler(message: Message) -> None:
+    await message.answer(
+        "Привет! Отправь мне фамилию для поиска в базах зачисленных"
+    )
+
+
+@router.message()
+async def surname_handler(message: Message) -> None:
+    query_text = (message.text or "").strip()
+    queries = parse_search_queries(query_text)
+    if not queries:
+        await message.answer("Отправь фамилии или имена текстовым сообщением.")
+        return
+
+    await message.answer("Ищу совпадения по сайтам...")
+
+    try:
+        links_by_domain = await find_admission_links()
+        links = list(
+            dict.fromkeys(
+                link
+                for domain_links in links_by_domain.values()
+                for link in domain_links
+            )
+        )
+
+        if not links:
+            await message.answer("Ссылки на списки зачисленных не найдены.")
+            return
+
+        results = await asyncio.gather(
+            *(_search_url(url, queries) for url in links)
+        )
+        grouped: dict[str, list[tuple[str, str]]] = {
+            query: [] for query in queries
+        }
+        for url, matches_by_query in results:
+            for query, matched_lines in matches_by_query.items():
+                grouped[query].extend((url, line) for line in matched_lines)
+
+        if not any(grouped.values()):
+            await message.answer(
+                "Совпадений для указанных фамилий и имён не найдено."
+            )
+            return
+
+        response_parts: list[str] = ["Найдены совпадения:"]
+        for query, matches in grouped.items():
+            response_parts.append(f"\n{query}:")
+            if not matches:
+                response_parts.append("• Совпадений нет")
+                continue
+
+            current_url = ""
+            for url, line in matches:
+                if url != current_url:
+                    response_parts.append(url)
+                    current_url = url
+                response_parts.append(f"• {line}")
+
+        response = "\n".join(response_parts)
+        for chunk in _split_message(response):
+            await message.answer(chunk, disable_web_page_preview=True)
+    except Exception:
+        logging.exception("Ошибка при поиске фамилии")
+        await message.answer("Во время поиска произошла ошибка. Попробуй позже.")
+
+
+async def main() -> None:
+    token = os.getenv("BOT_TOKEN")
+    if not token:
+        raise RuntimeError("Переменная окружения BOT_TOKEN не задана")
+
+    bot = Bot(token=token)
+    dispatcher = Dispatcher()
+    dispatcher.include_router(router)
+    await dispatcher.start_polling(bot)
+
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    asyncio.run(main())

@@ -1,0 +1,9 @@
+httpx
+playwright
+beautifulsoup4
+pdfplumber
+paddleocr
+paddlepaddle
+rapidfuzz
+aiogram
+python-dotenv
