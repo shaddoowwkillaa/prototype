@@ -4,6 +4,9 @@ import asyncio
 import logging
 import os
 from collections.abc import Iterable
+from html import escape
+from pathlib import PurePosixPath
+from urllib.parse import unquote, urlparse
 
 from aiogram import Bot, Dispatcher, Router
 from aiogram.filters import CommandStart
@@ -11,10 +14,17 @@ from aiogram.types import Message
 
 from .crawler import find_admission_links
 from .ocr_parser import extract_text_from_url
-from .search import parse_search_queries, search_surname
+from .search import SearchMatch, parse_search_queries, search_surname
 
 router = Router()
 MAX_MESSAGE_LENGTH = 4000
+UNIVERSITIES = {
+    "bsu.by": "БГУ",
+    "bsuir.by": "БГУИР",
+    "bntu.by": "БНТУ",
+    "bseu.by": "БГЭУ",
+    "mgkct.minskedu.gov.by": "МГКЦТ",
+}
 
 
 def _split_message(text: str, limit: int = MAX_MESSAGE_LENGTH) -> Iterable[str]:
@@ -28,10 +38,20 @@ def _split_message(text: str, limit: int = MAX_MESSAGE_LENGTH) -> Iterable[str]:
         yield text
 
 
+def _university_name(url: str) -> str:
+    parsed = urlparse(url)
+    host = (parsed.hostname or "").lower().removeprefix("www.")
+    if host in UNIVERSITIES:
+        return UNIVERSITIES[host]
+
+    filename = unquote(PurePosixPath(parsed.path).stem).replace("_", " ").strip()
+    return filename or host or "Неизвестное учебное заведение"
+
+
 async def _search_url(
     url: str,
     queries: list[str],
-) -> tuple[str, dict[str, list[str]]]:
+) -> tuple[str, dict[str, list[SearchMatch]]]:
     try:
         text = await extract_text_from_url(url)
         matches = await asyncio.to_thread(search_surname, text, queries)
@@ -75,12 +95,12 @@ async def surname_handler(message: Message) -> None:
         results = await asyncio.gather(
             *(_search_url(url, queries) for url in links)
         )
-        grouped: dict[str, list[tuple[str, str]]] = {
+        grouped: dict[str, list[tuple[str, SearchMatch]]] = {
             query: [] for query in queries
         }
         for url, matches_by_query in results:
-            for query, matched_lines in matches_by_query.items():
-                grouped[query].extend((url, line) for line in matched_lines)
+            for query, matches in matches_by_query.items():
+                grouped[query].extend((url, match) for match in matches)
 
         if not any(grouped.values()):
             await message.answer(
@@ -88,23 +108,41 @@ async def surname_handler(message: Message) -> None:
             )
             return
 
-        response_parts: list[str] = ["Найдены совпадения:"]
+        response_parts: list[str] = []
         for query, matches in grouped.items():
-            response_parts.append(f"\n{query}:")
+            response_parts.append(
+                f"🎯 <b>Результаты поиска:</b> {escape(query)}"
+            )
             if not matches:
-                response_parts.append("• Совпадений нет")
+                response_parts.append("❌ Совпадений нет")
                 continue
 
-            current_url = ""
-            for url, line in matches:
-                if url != current_url:
-                    response_parts.append(url)
-                    current_url = url
-                response_parts.append(f"• {line}")
+            for url, match in matches:
+                university = escape(_university_name(url))
+                heading = escape(match["heading"] or "Не определена")
+                line = escape(match["line"])
+                safe_url = escape(url, quote=True)
+                response_parts.extend(
+                    [
+                        "",
+                        f"🏛 <b>Учебное заведение:</b> {university}",
+                        f"📚 <b>Специальность/Факультет:</b> {heading}",
+                        f"✅ <b>Статус в списке:</b> {line}",
+                        (
+                            "🔗 <b>Источник:</b> "
+                            f'<a href="{safe_url}">Открыть список зачисленных</a>'
+                        ),
+                    ]
+                )
+            response_parts.append("")
 
         response = "\n".join(response_parts)
         for chunk in _split_message(response):
-            await message.answer(chunk, disable_web_page_preview=True)
+            await message.answer(
+                chunk,
+                parse_mode="HTML",
+                disable_web_page_preview=True,
+            )
     except Exception:
         logging.exception("Ошибка при поиске фамилии")
         await message.answer("Во время поиска произошла ошибка. Попробуй позже.")
