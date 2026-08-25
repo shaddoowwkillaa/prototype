@@ -3,14 +3,13 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
-import os
 from collections.abc import Iterable
 from html import escape
 from pathlib import Path, PurePosixPath
 from typing import Any
 from urllib.parse import unquote, urlparse
 
-from aiogram import Bot, Dispatcher, Router
+from aiogram import Router
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 
@@ -181,26 +180,3 @@ async def surname_handler(message: Message) -> None:
         logging.exception("Ошибка при поиске фамилии")
         await message.answer("Во время поиска произошла ошибка. Попробуй позже.")
 
-
-async def main() -> None:
-    token = os.getenv("BOT_TOKEN")
-    if not token:
-        raise RuntimeError("Переменная окружения BOT_TOKEN не задана")
-
-    bot = Bot(token=token)
-    dispatcher = Dispatcher()
-    dispatcher.include_router(router)
-
-    info = await bot.get_webhook_info()
-    logging.info(
-        "Webhook: %s, pending: %s",
-        info.url,
-        info.pending_update_count,
-    )
-    await bot.delete_webhook(drop_pending_updates=True)
-    await dispatcher.start_polling(bot)
-
-
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-    asyncio.run(main())
