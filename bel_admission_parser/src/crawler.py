@@ -4,6 +4,7 @@ import asyncio
 import gc
 import json
 import logging
+import socket
 from pathlib import Path
 from typing import Any
 from urllib.parse import urljoin, urlparse
@@ -170,7 +171,11 @@ async def scan_university() -> dict[str, list[str]]:
         sock_connect=10,
         sock_read=20,
     )
-    connector = aiohttp.TCPConnector(limit=3, ttl_dns_cache=300)
+    connector = aiohttp.TCPConnector(
+        limit=3,
+        ttl_dns_cache=300,
+        family=socket.AF_INET,
+    )
 
     try:
         async with aiohttp.ClientSession(
@@ -178,9 +183,14 @@ async def scan_university() -> dict[str, list[str]]:
             connector=connector,
             headers=BROWSER_HEADERS,
         ) as session:
-            results = await asyncio.gather(
-                *(_crawl_site(session, url) for url in target_urls)
-            )
+            results: list[tuple[str, list[str]]] = []
+            for offset in range(0, len(target_urls), 3):
+                batch = target_urls[offset : offset + 3]
+                batch_results = await asyncio.gather(
+                    *(_crawl_site(session, url) for url in batch)
+                )
+                results.extend(batch_results)
+                await asyncio.sleep(REQUEST_DELAY)
     except (aiohttp.ClientError, asyncio.TimeoutError, RuntimeError):
         logging.exception("Ошибка во время обхода сайтов")
         return {url: [] for url in target_urls}
