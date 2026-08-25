@@ -1,116 +1,109 @@
-from __future__ import annotations
-
+import io
 import asyncio
-import json
-from pathlib import Path
-from typing import Any
 from urllib.parse import urljoin, urlparse
-
-import httpx
+import aiohttp
 from bs4 import BeautifulSoup
+import pdfplumber
 
-KEYWORDS: tuple[str, ...] = (
-    "приказ",
-    "зачисл",
-    "список",
-    "абитуриент",
-    "ход приема",
-    "результаты",
-)
-CONFIG_PATH = Path(__file__).resolve().parent.parent / "config" / "target_urls.json"
-USER_AGENT = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/124.0 Safari/537.36"
-)
+# Ключевые слова для фильтрации целевых ссылок
+TARGET_KEYWORDS = TARGET_KEYWORDS = [
+    # Русскоязычные корни и слова
+    'абитуриент',   # Покроет: абитуриенту, абитуриентам, абитуриентский
+    'поступл',      # Покроет: поступление, поступающим, поступать
+    'приемн',       # Покроет: приемная комиссия, прием
+    'зачисл',       # Покроет: зачисление, зачисленные, зачислен
+    'список',       # Покроет: список, списки
+    'ход',          # Покроет: ход подачи документов
+    'колл',         # Покроет: колледж, колледжа
+    'дневн',        # Покроет: дневное, дневная
+    'заочн',        # Покроет: заочное, заочная
+    'бюджет',       # Покроет: бюджетная форма
+    'платн',        # Покроет: платная форма, платники
+    'результ',      # Покроет: результаты, результат
+    'свед',         # Покроет: сведения о зачислении
 
+    # Транслит и англоязычные URL-адреса
+    'abi', 'abitur', 'priem', 'postup', 'zachislen', 
+    'spisok', 'spiski', 'pdf', 'result', 'doc'
+]
 
-def _normalize_host(url: str) -> str:
-    host = (urlparse(url).hostname or "").lower().rstrip(".")
-    return host.removeprefix("www.")
+async def _extract_pdf_text(pdf_bytes: bytes) -> str:
+    """Извлечение текста из PDF в фоновом потоке без блокировки asyncio."""
+    def parse_pdf():
+        text = ""
+        try:
+            with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+                for page in pdf.pages:
+                    page_text = page.extract_text()
+                    if page_text:
+                        text += page_text + "\n"
+        except Exception:
+            pass
+        return text
 
+    return await asyncio.to_thread(parse_pdf)
 
-def _is_allowed_link(page_url: str, link_url: str) -> bool:
-    parsed = urlparse(link_url)
-    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
-        return False
+async def scan_university(start_url: str, surname: str, max_depth: int = 2) -> list[str]:
+    """Рекурсивный поиск фамилии на страницах ВУЗа и внутри PDF-документов."""
+    visited = set()
+    found_urls = []
+    surname_lower = surname.strip().lower()
+    base_domain = urlparse(start_url).netloc
 
-    is_pdf = parsed.path.lower().endswith(".pdf")
-    return is_pdf or _normalize_host(page_url) == _normalize_host(link_url)
+    async with aiohttp.ClientSession(headers={"User-Agent": "Mozilla/5.0"}) as session:
 
+        async def parse(url: str, current_depth: int):
+            if url in visited or current_depth > max_depth:
+                return
+            visited.add(url)
 
-async def _read_target_urls() -> list[str]:
-    def read_json() -> Any:
-        with CONFIG_PATH.open("r", encoding="utf-8") as file:
-            return json.load(file)
+            try:
+                async with session.get(url, timeout=15, ssl=False) as response:
+                    if response.status != 200:
+                        return
 
-    try:
-        data = await asyncio.to_thread(read_json)
-    except (OSError, json.JSONDecodeError, UnicodeError):
-        return []
+                    content_type = response.headers.get("Content-Type", "").lower()
 
-    if not isinstance(data, list):
-        return []
+                    # 1. Проверка PDF-документов
+                    if "application/pdf" in content_type or url.lower().endswith(".pdf"):
+                        pdf_bytes = await response.read()
+                        pdf_text = await _extract_pdf_text(pdf_bytes)
+                        if surname_lower in pdf_text.lower():
+                            found_urls.append(url)
+                        return
 
-    urls: list[str] = []
-    for item in data:
-        url: Any = item.get("url") if isinstance(item, dict) else item
-        if isinstance(url, str) and urlparse(url).scheme in {"http", "https"}:
-            urls.append(url)
-    return list(dict.fromkeys(urls))
+                    # 2. Проверка обычных HTML-страниц
+                    html = await response.text(errors="ignore")
+                    soup = BeautifulSoup(html, "html.parser")
+                    text_content = soup.get_text()
 
+                    if surname_lower in text_content.lower():
+                        found_urls.append(url)
 
-async def _crawl_site(
-    client: httpx.AsyncClient,
-    domain_url: str,
-) -> tuple[str, list[str]]:
-    try:
-        response = await client.get(domain_url, follow_redirects=True)
-        response.raise_for_status()
-    except (
-        httpx.TimeoutException,
-        httpx.NetworkError,
-        httpx.HTTPStatusError,
-        httpx.InvalidURL,
-        httpx.TooManyRedirects,
-    ):
-        return domain_url, []
+                    # 3. Поиск ссылок для перехода на уровень 2
+                    if current_depth < max_depth:
+                        links_to_visit = []
+                        for a_tag in soup.find_all("a", href=True):
+                            href = a_tag["href"].strip()
+                            full_url = urljoin(url, href)
+                            parsed_target = urlparse(full_url)
 
-    try:
-        soup = BeautifulSoup(response.text, "html.parser")
-        links: list[str] = []
+                            # Переходим только по ссылкам текущего домена с релевантными ключевыми словами
+                            if parsed_target.netloc == base_domain:
+                                link_text = a_tag.get_text().lower()
+                                link_url_lower = full_url.lower()
 
-        for anchor in soup.find_all("a", href=True):
-            href = str(anchor.get("href", "")).strip()
-            text = anchor.get_text(" ", strip=True)
-            searchable = f"{href} {text}".lower()
+                                if any(kw in link_url_lower or kw in link_text for kw in TARGET_KEYWORDS):
+                                    if full_url not in visited:
+                                        links_to_visit.append(full_url)
 
-            if not href or not any(keyword in searchable for keyword in KEYWORDS):
-                continue
+                        # Ограничиваем количество переходов для экономии ресурсов Render
+                        for next_url in links_to_visit[:6]:
+                            await parse(next_url, current_depth + 1)
 
-            absolute_url = urljoin(str(response.url), href)
-            if _is_allowed_link(str(response.url), absolute_url):
-                links.append(absolute_url)
+            except Exception:
+                pass
 
-        return domain_url, list(dict.fromkeys(links))
-    except (AttributeError, TypeError, ValueError, UnicodeError):
-        return domain_url, []
+        await parse(start_url, 1)
 
-
-async def find_admission_links() -> dict[str, list[str]]:
-    target_urls = await _read_target_urls()
-    if not target_urls:
-        return {}
-
-    timeout = httpx.Timeout(15.0)
-    headers = {"User-Agent": USER_AGENT}
-
-    try:
-        async with httpx.AsyncClient(timeout=timeout, headers=headers) as client:
-            results = await asyncio.gather(
-                *(_crawl_site(client, url) for url in target_urls)
-            )
-    except (httpx.HTTPError, RuntimeError):
-        return {url: [] for url in target_urls}
-
-    return dict(results)
+    return found_urls
