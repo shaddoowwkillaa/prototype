@@ -47,19 +47,27 @@ def parse_search_queries(queries: str | list[str]) -> list[str]:
     return parsed
 
 
-def _initials_score(query: str, line: str) -> float:
+def _match_score(query: str, line: str, **_: Any) -> float:
     query_words = _WORD_RE.findall(query.lower().replace("ё", "е"))
     line_words = _WORD_RE.findall(line.lower().replace("ё", "е"))
     if not query_words or not line_words:
         return 0.0
 
+    # 1. ЖЕСТКИЙ ПРИОРИТЕТ: Ищем совпадение для Фамилии (первое слово запроса)
     surname_score = max(
         (fuzz.ratio(query_words[0], word) for word in line_words),
         default=0.0,
     )
-    if surname_score < 75 or len(query_words) == 1:
+    
+    # Если фамилия совпала меньше чем на 75%, сразу отбраковываем строку
+    if surname_score < 75.0:
+        return 0.0
+
+    # Если в запросе была только фамилия, возвращаем её балл
+    if len(query_words) == 1:
         return surname_score
 
+    # 2. Ищем имя и отчество строго после найденной фамилии в строке
     try:
         surname_index = max(
             range(len(line_words)),
@@ -69,8 +77,8 @@ def _initials_score(query: str, line: str) -> float:
         return 0.0
 
     following_words = line_words[surname_index + 1 : surname_index + len(query_words)]
-    if len(following_words) < len(query_words) - 1:
-        return 0.0
+    if not following_words:
+        return surname_score * 0.8
 
     name_scores = [
         100.0
@@ -78,16 +86,8 @@ def _initials_score(query: str, line: str) -> float:
         else float(fuzz.ratio(expected, actual))
         for expected, actual in zip(query_words[1:], following_words)
     ]
+    
     return min([float(surname_score), *name_scores])
-
-
-def _match_score(query: str, line: str, **_: Any) -> float:
-    normalized_query = _normalize(query)
-    normalized_line = _normalize(line)
-    return max(
-        float(fuzz.partial_ratio(normalized_query, normalized_line)),
-        _initials_score(query, line),
-    )
 
 
 def _find_heading(lines: list[str], match_index: int) -> str | None:
@@ -106,33 +106,56 @@ def _find_heading(lines: list[str], match_index: int) -> str | None:
 def search_surname(
     text: str,
     surname: str | list[str],
-    threshold: int = 85,
+    threshold: int = 70,  # Снижаем порог до 70 для надежности
 ) -> dict[str, list[SearchMatch]]:
     queries = parse_search_queries(surname)
     results: dict[str, list[SearchMatch]] = {query: [] for query in queries}
+    
+    # Нормализуем весь текст: убираем лишние пробелы, приводя к ровному виду
+    cleaned_text = " ".join(text.split())
+    
+    # Также сохраняем оригинальные строки для вывода
     lines = [line.strip() for line in text.splitlines() if line.strip()]
     if not lines or not queries:
         return results
 
     for query in queries:
-        scored_lines = process.extract(
-            query,
-            lines,
-            scorer=_match_score,
-            score_cutoff=threshold,
-            limit=None,
-        )
-        seen_lines: set[str] = set()
-        for line, score, index in scored_lines:
-            if score <= threshold or line in seen_lines:
+        query_lower = query.lower().replace("ё", "е")
+        query_words = _WORD_RE.findall(query_lower)
+        if not query_words:
+            continue
+            
+        target_surname = query_words[0]
+        found_matches = []
+
+        # Проходим по каждой строке документа
+        for index, line in enumerate(lines):
+            line_lower = line.lower().replace("ё", "е")
+            line_words = _WORD_RE.findall(line_lower)
+            if not line_words:
                 continue
-            seen_lines.add(line)
-            results[query].append(
-                {
-                    "line": line,
-                    "heading": _find_heading(lines, index),
-                    "score": float(score),
-                }
-            )
+
+            # Проверяем, есть ли фамилия в этой строке (с мягким порогом fuzzy)
+            surname_matched = any(fuzz.ratio(target_surname, lw) >= 75 for lw in line_words)
+            
+            if surname_matched:
+                # Если фамилия есть, проверяем, совпадают ли остальные слова (имя/отчество)
+                score = float(fuzz.partial_ratio(query_lower, line_lower))
+                
+                # Если в запросе только фамилия или имя тоже частично сошлось
+                if len(query_words) == 1 or score >= threshold:
+                    heading = _find_heading(lines, index)
+                    found_matches.append({
+                        "line": line,
+                        "heading": heading,
+                        "score": score,
+                    })
+
+        # Убираем дубликаты строк
+        seen_lines: set[str] = set()
+        for match in found_matches:
+            if match["line"] not in seen_lines:
+                seen_lines.add(match["line"])
+                results[query].append(match)
 
     return results

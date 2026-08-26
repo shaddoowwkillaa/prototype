@@ -5,6 +5,7 @@ import gc
 import json
 import logging
 import socket
+import ssl
 from pathlib import Path
 from typing import Any
 from urllib.parse import urljoin, urlparse
@@ -13,12 +14,13 @@ import aiohttp
 from bs4 import BeautifulSoup
 
 KEYWORDS: tuple[str, ...] = (
-    "приказ",
-    "зачисл",
-    "список",
-    "абитуриент",
-    "ход приема",
-    "результаты",
+    "приказ о зачислении",
+    "список зачисленных",
+    "зачисленные",
+    "итоги приема",
+    "результаты зачисления",
+    "списки абитуриентов",
+    "поступившие",
 )
 CONFIG_PATH = Path(__file__).resolve().parent.parent / "config" / "target_urls.json"
 BROWSER_HEADERS = {
@@ -105,6 +107,10 @@ async def _crawl_site(
     session: aiohttp.ClientSession,
     domain_url: str,
 ) -> tuple[str, list[str]]:
+    # ЕСЛИ СРАЗУ УКАЗАН PDF-ФАЙЛ — возвращаем его напрямую без лишнего поиска!
+    if _is_pdf(domain_url):
+        return domain_url, [domain_url]
+
     try:
         async with session.get(domain_url, allow_redirects=True) as response:
             if response.status != 200:
@@ -171,10 +177,17 @@ async def scan_university() -> dict[str, list[str]]:
         sock_connect=10,
         sock_read=20,
     )
+    
+    # Создаем SSL-контекст прямо здесь (внутри запущенного event loop)
+    ssl_context = ssl.create_default_context()
+    ssl_context.check_hostname = False
+    ssl_context.verify_mode = ssl.CERT_NONE
+
     connector = aiohttp.TCPConnector(
         limit=3,
         ttl_dns_cache=300,
         family=socket.AF_INET,
+        ssl=ssl_context,  # Безопасно передаем отключение проверки сертификатов
     )
 
     try:

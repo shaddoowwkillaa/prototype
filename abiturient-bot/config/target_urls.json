@@ -1,0 +1,37 @@
+[
+
+    {
+      "id": "brgu_spiski",
+      "university": "БрГУ им. А.С. Пушкина",
+      "url": "https://www.brsu.by/be/abi/spiski-zachislennyh",
+      "type": "pdf",
+      "year": 2026,
+      "description": "Раздел со списками зачисленных (пока оглавление)"
+    },
+    {
+      "id": "brgu_spiski",
+      "university": "БрГУ им. А.С. Пушкина",
+      "url": "https://www.brsu.by/be/abi/spiski-zachislennyh",
+      "type": "page_with_pdfs",
+      "pdf_filter": "abiturient",
+      "max_pdfs": 10,
+      "year": 2026,
+      "description": "Списки зачисленных (PDF из раздела)"
+    },
+    {
+        "id": "ggmk_spiski",
+        "university": "Гродненский государственный медицинский колледж",
+        "url": "https://ggmk.by/spisok-zachislennyh.html",
+        "type": "html",
+        "year": 2026,
+        "description": "Списки зачисленных"
+    },
+    {
+      "id": "bseu_spiski",
+      "university": "БГЭУ",
+      "url": "https://bseu.by/russian/abiturient/docs/listdfo.pdf",
+      "type": "pdf",
+      "year": 2026,
+      "description": "Список зачисленных 2026"
+    }
+  ]

@@ -1,0 +1,95 @@
+import re
+from parser import get_text_from_source
+from config import CONTEXT_LENGTH
+
+def normalize_text(text: str) -> str:
+    """Нормализует текст: нижний регистр, ё→е, лишние пробелы"""
+    text = text.lower()
+    text = text.replace("ё", "е")
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
+
+def generate_search_variants(full_name: str) -> list:
+    """Генерирует варианты ФИО для поиска"""
+    parts = full_name.strip().split()
+    if len(parts) < 2:
+        return [normalize_text(full_name)]
+    
+    surname = parts[0]
+    name = parts[1]
+    patronymic = parts[2] if len(parts) > 2 else ""
+    
+    variants = [
+        normalize_text(full_name),  # Полное ФИО
+        normalize_text(f"{surname} {name}"),  # Фамилия + имя
+    ]
+    
+    if patronymic:
+        variants.extend([
+            normalize_text(f"{surname} {name[0]}. {patronymic[0]}."),  # Фамилия + инициалы с точками
+            normalize_text(f"{surname} {name[0]} {patronymic[0]}"),  # Фамилия + инициалы без точек
+        ])
+    
+    return variants
+
+def extract_context(text: str, match_pos: int, context_length: int = CONTEXT_LENGTH) -> str:
+    """Извлекает контекст вокруг найденного ФИО"""
+    start = max(0, match_pos - context_length)
+    end = min(len(text), match_pos + context_length)
+    return text[start:end]
+
+def search_in_text(text: str, search_variants: list) -> list:
+    """Ищет ФИО в тексте, возвращает список найденных контекстов"""
+    normalized_text = normalize_text(text)
+    results = []
+    
+    for variant in search_variants:
+        pattern = re.escape(variant)
+        for match in re.finditer(pattern, normalized_text):
+            context = extract_context(text, match.start())
+            results.append({
+                "variant": variant,
+                "context": context
+            })
+    
+    return results
+
+def extract_specialty_from_context(context: str) -> str:
+    """Пытается извлечь специальность/факультет из контекста"""
+    # Ищем ключевые слова
+    keywords = ["специальность", "факультет", "группа", "направление"]
+    context_lower = context.lower()
+    
+    for keyword in keywords:
+        if keyword in context_lower:
+            # Извлекаем текст после ключевого слова
+            match = re.search(rf"{keyword}[:\s]+([^\n]+)", context, re.IGNORECASE)
+            if match:
+                return match.group(1).strip()
+    
+    return "Не удалось определить"
+
+def search_student(full_name: str, sources: list) -> list:
+    """Ищет студента во всех источниках"""
+    search_variants = generate_search_variants(full_name)
+    results = []
+    
+    for source in sources:
+        text = get_text_from_source(source)
+        if not text:
+            continue
+        
+        matches = search_in_text(text, search_variants)
+        
+        for match in matches:
+            specialty = extract_specialty_from_context(match["context"])
+            results.append({
+                "university": source["university"],
+                "year": source["year"],
+                "description": source["description"],
+                "specialty": specialty,
+                "source_url": source["url"],
+                "context": match["context"]
+            })
+    
+    return results
