@@ -1,0 +1,1585 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<script>(function(){try{const d=JSON.parse(localStorage.getItem('vision_mode')||'{}');if(d.enabled){const h=document.documentElement;h.setAttribute('data-vision-enabled','true');h.setAttribute('data-vision-font-size',d.fontSize||'0');h.setAttribute('data-vision-theme',d.theme||'white-black');h.setAttribute('data-vision-font',d.font||'sans');h.setAttribute('data-vision-spacing',d.spacing||'normal');h.setAttribute('data-vision-images',d.images||'on');}}catch(e){}})();</script><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Список учащихся зачисленных на 1 курс 2026/2027 учебного года</title><link rel="shortcut icon" href="/files/02049/img/favicon-mgkct-32x32.png" type="image/x-icon" /><link href='/files/02049/css/1504v1.css' data-name='EX_V3_ALL_bootstrap-5-3-8.min.css' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1374v3.css' data-name='EX_V3_MAIN_2.2.2-tom-select.css' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1394v5.css' data-name='EX_V3_ALL_FIXED_fontawesome-7.1.0.all.min.css' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1614v1.css' data-name='EX_V3_COMMON_3.8.0.justifiedGallery.min.css' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1574v5.css' data-name='EX_V3_COMMON_2.9.0.lightgallery-bundle.min.css' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1594v2.css' data-name='IN_V3_ALL_TEMPLATES_CORE_STYLES' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1524v27.css' data-name='IN_V3_ALL_FONT_TEXT_UTILS' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1514v44.css' data-name='IN_V3_ALL_UTILS' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1404v45.css' data-name='IN_V3_ALL_HEADER' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1454v28.css' data-name='IN_V3_ALL_ACCESSIBILITY_PANEL.css' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1544v180.css' data-name='IN_V3_ALL_TEMPLATES_NAVBAR' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1584v3.css' data-name='IN_V3_COMMON_TEMPLATE_GALLERY' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1634v34.css' data-name='IN_V3_COMMON_TABLE_FLUID' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1664v1.css' data-name='IN_V3_ALL_VISUALLY_IMPAIRED_PANEL_STYLE' rel='stylesheet' type='text/css'/>
+<link href='/files/02049/css/1654v29.css' data-name='IN_V3_ALL_VISUALLY_IMPAIRED_EFFECTS' rel='stylesheet' type='text/css'/>
+<script src='/files/02049/js/1344v1.js' data-name='EX_V3_jQuery1.12.4' type='text/javascript'></script>
+<script src='/files/02049/js/1494v1.js' data-name='EX_V3_bootstrap-5-3-8.bundle.min.js' type='text/javascript'></script>
+<script src='/files/02049/js/1304v5.js' data-name='EX_V2_2.2.2-tom-select.base.min.js' type='text/javascript'></script>
+<script src='/files/02049/js/1394v2.js' data-name='EX_V3_fontawesome-7.1.0.all.min.js' type='text/javascript'></script>
+<script src='/files/02049/js/1414v3.js' data-name='EX_V3_tsparticles_bundle_3.9.2' type='text/javascript'></script>
+<script src='/files/02049/js/1664v1.js' data-name='EX_V3_3.8.0.justifiedGallery.min.js' type='text/javascript'></script>
+<script src='/files/02049/js/1574v2.js' data-name='EX_V3_2.9.0.lightgallery.lg-thumbnail.min.js' type='text/javascript'></script>
+<script src='/files/02049/js/1584v1.js' data-name='EX_V3_2.9.0.lightgallery.lg-zoom.min.js' type='text/javascript'></script>
+<script src='/files/02049/js/1554v1.js' data-name='EX_V3_2.9.0.lightgallery.umd.min.js' type='text/javascript'></script>
+<script src='/files/02049/js/1674v1.js' data-name='EX_V3_QRCODE_GENERATOR' type='text/javascript'></script>
+<script src='/files/02049/js/1424v2.js' data-name='IN_V3_TRANSLATOR_FX' type='text/javascript'></script>
+<script src='/files/02049/js/1404v64.js' data-name='IN_V3_HEADER_FX' type='text/javascript'></script>
+<script src='/files/02049/js/1534v84.js' data-name='IN_V3_NAVBAR_OPTIMIZED' type='text/javascript'></script>
+<script src='/files/02049/js/1654v68.js' data-name='IN_V3_GALLERY_INIT' type='text/javascript'></script>
+<script src='/files/02049/js/1644v43.js' data-name='IN_V3_PDF_SCRIPTS_INIT' type='text/javascript'></script>
+<script src='/files/02049/js/1684v39.js' data-name='IN_V3_COMMON_TABLE_FLUID' type='text/javascript'></script>
+<script src='/files/02049/js/1694v6.js' data-name='IN_V3_COMMON_PHONE_WRAPPER' type='text/javascript'></script>
+<script src='/files/02049/js/1714v8.js' data-name='IN_V3_COMMON_TIMETABLE_FILTERS_INJECT' type='text/javascript'></script>
+<script src='/files/02049/js/1724v3.js' data-name='IN_V3_VISUALLY_IMPIRED_SCRIPT' type='text/javascript'></script>
+<meta name='yandex-verification' content='53a405dc972ab343' />
+<!-- Yandex.Metrika counter -->
+<script type="text/plain" data-category="analytics" data-service="Яндекс.Метрика">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+    ym(97385460, 'init', {webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/97385460" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="fx-layer z-10"></div><header>    <div id="header-block" class="position-relative">    <div      id="header-tsparticles"      class="position-absolute top-0 start-0 w-100 h-100 fx-layer"    ></div>    
+<div class="container header-container">
+  <div class="row h-100 w-100 g-2">
+    <div class="col-3 col-md-2 d-flex justify-content-center align-items-center user-select-none z-3">
+		<a href="/">
+      <img src="/files/02049/img/optimized-rubick.gif" 
+           class="header-logo" 
+           alt="Логотип МГКЦТ" />
+		   </a>
+    </div>
+    <div class="col-9 col-md-10 d-flex justify-content-center align-items-center position-relative pe-none z-3">
+      <div class="text-start w-100">
+        <p class="mb-0 text-primary fw-normal header-subtitle ff-rubik-bold text-white user-select-none text-shadow-dark">
+          Учреждение образования
+        </p>
+
+        <h1 class="text-primary header-title mb-0 user-select-none ff-rubik-bold text-white text-shadow-dark">
+          Минский государственный колледж цифровых <br class="d-none d-xl-block"/>технологий
+        </h1>
+      </div>
+      
+      <p class="d-none d-lg-block position-absolute header-slogan reveal-left-rotate user-select-none  ff-badscript-regular fw-bold end-0 bottom-0 mb-2 text-shadow-dark fx-layer"
+         style="color: palegreen">
+        Здесь начинается твой путь к успеху!
+      </p>
+    </div>
+  </div>
+</div>
+	  </div></header><div id="sticky-wrapper" class="sticky-top shadow z-8">			<div id="vision-panel" class="vision-panel">
+  <div class="vision-panel-inner">
+    <div class="vision-control-group">
+      <span class="vision-label">Размер:</span>
+      <button data-vision-control data-font-size="-1" title="Уменьшенный">A-</button>
+      <button data-vision-control data-font-size="0" title="Обычный" class="active">A</button>
+      <button data-vision-control data-font-size="1" title="Увеличенный">A+</button>
+      <button data-vision-control data-font-size="2" title="Большой">A++</button>
+    </div>
+    
+    <div class="vision-control-group">
+      <span class="vision-label">Цвет:</span>
+      <button data-vision-control data-theme="white-black" title="Черный на белом" class="active">
+        <span class="color-demo" style="background:#fff;color:#000">А</span>
+      </button>
+      <button data-vision-control data-theme="black-white" title="Белый на черном">
+        <span class="color-demo" style="background:#000;color:#fff">А</span>
+      </button>
+      <button data-vision-control data-theme="blue-black" title="Черный на голубом">
+        <span class="color-demo" style="background:#9DD1FF;color:#000">А</span>
+      </button>
+      <button data-vision-control data-theme="beige-brown" title="Коричневый на бежевом">
+        <span class="color-demo" style="background:#F7F3D6;color:#4D4B43">А</span>
+      </button>
+    </div>
+    
+    <div class="vision-control-group">
+      <span class="vision-label">Шрифт:</span>
+      <select data-control="font">
+        <option value="original">Обычный</option>
+        <option value="sans" selected>Без засечек</option>
+        <option value="serif">С засечками</option>
+        <option value="mono">Моноширинный</option>
+      </select>
+    </div>
+    
+    <div class="vision-control-group">
+      <span class="vision-label">Интервал:</span>
+      <button data-vision-control data-spacing="normal" class="active">Обычный</button>
+      <button data-vision-control data-spacing="large">Большой</button>
+      <button data-vision-control data-spacing="huge">Огромный</button>
+    </div>
+    
+    <div class="vision-control-group">
+      <span class="vision-label">Изображения:</span>
+      <select data-control="images">
+        <option value="on" selected>Показать</option>
+        <option value="grayscale">Ч/Б</option>
+        <option value="off">Скрыть</option>
+      </select>
+    </div>
+    
+    <div class="vision-control-group">
+      <button data-vision-control="reset" class="vision-reset">Сбросить</button>
+    </div>
+	
+	    <div class="vision-control-group vision-close-group">
+      <button data-vision-control="close" class="vision-close" title="Выключить режим для слабовидящих">✕ Закрыть</button>
+    </div>
+  </div>
+</div>	  	<nav class="navbar navbar-expand-lg navbar-dark bg-primary ms-auto py-0">
+	<div class="container" style="min-height: 3rem;">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+				aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Контейнер с коллапсом -->
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<div id="navbar_body"><ul class="level_0 parent_active navbar-nav"><li class="parent_active nav-item"><a class="nav-link" href="/">Главная<span class="arrow"></span></a></li><li class="parent nav-item"><a class="nav-link" href="/about/contacts">О колледже<span class="arrow"></span></a><ul class="level_1 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/about/contacts">Контакты<span class="arrow"></span></a></li><li class="parent nav-item"><a class="nav-link" href="/about/rating/service-rating">Рейтинг колледжа<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/about/rating/service-rating">Качество услуг<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/rating/achievements">Заслуги колледжа<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/rating/chronicle">Летопись<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/rating/veterans">Ветераны<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/rating/honored-workers">Почетные работники колледжа<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/rating/otlichniki-obrazovaniia">Отличники образования<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/rating/laureaty-specialnogo-fonda-prezidenta-respubliki-belarus">Лауреаты Специального фонда Президента Республики Беларусь<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/rating/rabotniki-udostoenye-gosudarstvennyh-nagrad">Работники, удостоенные государственных наград<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/rating/directors">Руководители колледжа<span class="arrow"></span></a></li></ul></li><li class="parent nav-item"><a class="nav-link" href="/about/collective/administration">Коллектив<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/about/collective/administration">Администрация колледжа<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/collective/teachers">Педагогический коллектив<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/collective/employees">Cлужащие<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/collective/maintenance">Cлужащие АХЧ<span class="arrow"></span></a></li></ul></li><li class="parent nav-item"><a class="nav-link" href="/about/documents/registration-documents">Документы<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/about/documents/registration-documents">Регистрационные документы<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/documents/statute">Устав колледжа<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/documents/structure">Структура колледжа<span class="arrow"></span></a></li></ul></li><li class="parent nav-item"><a class="nav-link" href="/about/news">Архив новостей<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/about/news/arhiv-novostei-spiskom">Архив новостей (списком)<span class="arrow"></span></a></li></ul></li><li class=" nav-item"><a class="nav-link" href="/about/announcements">Архив анонсов<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/experimental-innovative-activities">Экспериментальная и инновационная деятельность<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/union">Первичная профсоюзная организация<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/anti-corruption">Профилактика коррупции<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/facilities">Материально-техническая база<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/paid-services">Платные услуги<span class="arrow"></span></a></li><li class="parent nav-item"><a class="nav-link" href="/about/rehabilitation-center">Центр профессиональной и социальной реабилитации<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/about/rehabilitation-center/inclusive-culture-center">Центр духовно-нравственной и инклюзивной культуры<span class="arrow"></span></a></li></ul></li><li class="parent nav-item"><a class="nav-link" href="/about/robotics-center">Центр компетенций по робототехнике<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/about/robotics-center/dokumenty-centra-kompetencii">Документы центра компетенций<span class="arrow"></span></a></li></ul></li><li class=" nav-item"><a class="nav-link" href="/about/careers">Вакансии<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/students-available-places">Свободные места для зачисления учащихся<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/personal-data-policy">Политика в отношении обработки персональных данных<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/cookie-policy">Политика в отношении обработки cookie<span class="arrow"></span></a></li></ul></li><li class="parent_active parent nav-item"><a class="nav-link" href="/applicants/spisok-uchascihsia-zachislennyh-na-1-kurs-2026-2027-uchebnogo-goda">Абитуриентам<span class="arrow"></span></a><ul class="level_1 parent_active navbar-nav"><li class="active nav-item"><a class="nav-link active" href="/applicants/spisok-uchascihsia-zachislennyh-na-1-kurs-2026-2027-uchebnogo-goda">Список учащихся зачисленных на 1 курс 2026/2027 учебного года<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/applicants/prohodnye-bally-v-2026-godu">Проходные баллы в 2026 году<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/applicants/celevaia-podgotovka">Целевая подготовка<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/applicants/dokumenty-predostavliaemye-v-priemnuiu-komissiiu">Документы, предоставляемые в приемную комиссию<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/applicants/priem-inostrannyh-grajdan">Прием иностранных граждан<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/applicants/priemnaia-komissiia">Приемная комиссия<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/applicants/onlain-karta-kolledjei-g-minska">Онлайн карта колледжей г. Минска<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/applicants/accelerated-university-program">Продолжение обучения по сокращенной форме (ВУЗ)<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/facilities">Материально-техническая база<span class="arrow"></span></a></li></ul></li><li class="parent nav-item"><a class="nav-link" href="/ideology">Воспитательная работа<span class="arrow"></span></a><ul class="level_1 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/ideology/state-symbols">Государственная символика<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/memory-and-pain-of-belarus">Память и боль белорусской земли<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/active-citizen-school">Школа Активного Гражданина<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/unified-information-day">Единый день информирования<span class="arrow"></span></a></li><li class="parent nav-item"><a class="nav-link" href="/ideology/social-and-psychological-support">Социально-педагогическая поддержка и психологическая помощь<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/ideology/social-and-psychological-support/advice-for-students">Рекомендации учащимся<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/social-and-psychological-support/advice-for-parents">Рекомендации родителям<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/social-and-psychological-support/state-social-assistance">Государственная адресная социальная помощь<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/social-and-psychological-support/crisis-psychological-help">Психологическая помощь в кризисных ситуациях<span class="arrow"></span></a></li></ul></li><li class=" nav-item"><a class="nav-link" href="/ideology/hobby-groups">Объединения по интересам<span class="arrow"></span></a></li><li class="parent nav-item"><a class="nav-link" href="/ideology/community-organizations/brsm">Общественные организации<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/ideology/community-organizations/brsm">БРСМ<span class="arrow"></span></a></li></ul></li><li class=" nav-item"><a class="nav-link" href="/ideology/student-self-government">Ученическое самоуправление<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/for-curators">Куратору<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/media-about-us">СМИ о нас<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/legal-regulations">Нормативное правовое обеспечение<span class="arrow"></span></a></li><li class="parent nav-item"><a class="nav-link" href="/ideology/safety-health-law/law-and-order">Безопасность, здоровье и правопорядок<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/ideology/safety-health-law/law-and-order">Правопорядок и ответственность<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/safety-health-law/health-and-prevention">Здоровье и профилактика<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/safety-health-law/personal-safety">Личная безопасность<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/safety-health-law/cyber-security">Цифровая безопасность<span class="arrow"></span></a></li></ul></li></ul></li><li class="parent nav-item"><a class="nav-link" href="/personnel/for-teachers/teacher-rules">Персоналии<span class="arrow"></span></a><ul class="level_1 navbar-nav"><li class="parent nav-item"><a class="nav-link" href="/personnel/for-teachers/weekly-timetable">Преподавателям<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/personnel/for-teachers/weekly-timetable">Расписание занятий на неделю<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-teachers/bell-schedule">Расписание звонков<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-teachers/teacher-rules">Правила педагогических работников<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-teachers/work-discipline">Трудовая дисциплина<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-teachers/medical-checkup">Диспансеризация<span class="arrow"></span></a></li></ul></li><li class="parent nav-item"><a class="nav-link" href="/personnel/for-students">Учащимся<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/personnel/for-students/weekly-timetable">Расписание занятий на неделю<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-students/holiday-schedule">Расписание каникул<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-students/exam-schedule">График экзаменов<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-students/internal-regulations">Правила внутреннего распорядка<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-students/basics-of-life-safety">Основы безопасности жизнедеятельности<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-students/student-work-programs">Трудоустройство молодежи в свободное от учебы время<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-students/food-services">Организация питания в колледже<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/social-and-psychological-support/advice-for-students">Рекомендации учащимся<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-students/library">Библиотека<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-students/линейка-1-курс-казинца-91">Линейка 1 курс (Казинца, 91)<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-students/линейка-1-курс-кнорина-14">Линейка 1 курс (Кнорина, 14)<span class="arrow"></span></a></li></ul></li><li class="parent nav-item"><a class="nav-link" href="/personnel/for-parents/paid-education">Родителям<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/personnel/for-parents/paid-education">Платное обучение<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/ideology/social-and-psychological-support/advice-for-parents">Рекомендации родителям<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/personnel/for-students/food-services">Организация питания в колледже<span class="arrow"></span></a></li></ul></li><li class=" nav-item"><a class="nav-link" href="/about/students-available-places">Свободные места для зачисления учащихся<span class="arrow"></span></a></li></ul></li><li class="parent nav-item"><a class="nav-link" href="/for-citizens/one-stop-administrative-services/list-of-administrative-procedures">Работа с гражданами<span class="arrow"></span></a><ul class="level_1 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/about/contacts">Контакты<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/for-citizens/college-working-hours">Режим работы колледжа<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/about/documents/structure">Структура колледжа<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/for-citizens/location">Место расположения<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/for-citizens/parent-organization">Вышестоящая организация<span class="arrow"></span></a></li><li class="parent nav-item"><a class="nav-link" href="/for-citizens/one-stop-administrative-services/list-of-administrative-procedures">Административные процедуры по принципу «Одного окна»<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/for-citizens/one-stop-administrative-services/list-of-administrative-procedures">Перечень административных процедур<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/for-citizens/one-stop-administrative-services/legal-terms-and-regulations">Терминология и нормативные правовые акты<span class="arrow"></span></a></li></ul></li><li class=" nav-item"><a class="nav-link" href="/for-citizens/citizens-reception-schedule">График приема граждан<span class="arrow"></span></a></li><li class="parent nav-item"><a class="nav-link" href="/for-citizens/assistance-for-disabled">Ситуационная помощь инвалидам<span class="arrow"></span></a><ul class="level_2 navbar-nav"><li class=" nav-item"><a class="nav-link" href="/for-citizens/assistance-for-disabled/accessible-environment">Доступная среда <span class="arrow"></span></a></li></ul></li><li class=" nav-item"><a class="nav-link" href="/for-citizens/online-appeal">Электронное обращение<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/for-citizens/nearest-bank">Ближайшее банковское учреждение<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/for-citizens/bank-details">Банковские реквизиты<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/for-citizens/one-stop-consultations">Консультации о работе "Одного окна"<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/for-citizens/hotline">Горячая телефонная линия<span class="arrow"></span></a></li><li class=" nav-item"><a class="nav-link" href="/for-citizens/direct-line">Прямая телефонная линия<span class="arrow"></span></a></li></ul></li></ul>			</div>
+			<!-- ИСПРАВЛЕННАЯ ФОРМА ЯНДЕКС ПОИСКА -->
+			<form method="get" action="/services/search" name="site_search_head" class="d-flex" role="search">
+				<input type="search" name="text" class="form-control me-2" required="required" placeholder="Поиск по сайту" />
+				<input type="hidden" name="searchid" value="7926440" />
+				<input type="hidden" name="web" value="0" />
+    <button class="btn btn-light" type="submit" aria-label="Искать">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+			</form>
+		</div>
+	</div>
+</nav>		
+        <div id="blind-translator-buttons" class="mod_buttons lng_select position-absolute d-flex align-items-center gap-2 bg-primary rounded-bottom px-1 py-1 shadow-sm z-10 m-md-0">
+
+            <!-- Кнопка слабовидящих -->
+            <a class="wep_toggle btn btn-light btn-sm" title="Режим для слабовидящих">
+                <i class="fa-solid fa-eye"></i>
+            </a>
+
+            <div id="google_translate_element"></div>
+
+            <script type="text/javascript">
+                eval(function(p,a,c,k,e,r){e = function (c) { return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) };if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('6 7(a,b){n{4(2.9){3 c=2.9("o");c.p(b,f,f);a.q(c)}g{3 c=2.r();a.s(\'t\'+b,c)}}u(e){ }}6 h(a){4(a.8)a=a.8;4(a==\'\')v;3 b=a.w(\'|\')[1];3 c;3 d=2.x(\'y\');z(3 i=0;i<d.5;i++)4(d[i].A==\'B-C-D\')c=d[i];4(2.j(\'k\')==E||2.j(\'k\').l.5==0||c.5==0||c.l.5==0){F(6(){ h(a) }, G)}g{c.8=b;7(c,\'m\');7(c,\'m\')}}',43,43,'||document|var|if|length|function|GTranslateFireEvent|value|createEvent||||||true|else|doGTranslate||getElementById|google_translate_element|innerHTML|change|try|HTMLEvents|initEvent|dispatchEvent|createEventObject|fireEvent|on|catch|return|split|getElementsByTagName|select|for|className|goog|te|combo|null|setTimeout|500'.split('|'),0,{ }))
+                function googleTranslateElementInit2() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'ru',
+                        autoDisplay: false
+                    }, 'google_translate_element');
+        }
+            </script>
+
+<script>function doGTranslate() { alert('Для использования функционала перевода требуется разрешить функциональные cookie сервиса Google Translate. Вы можете изменить свой выбор настроек куки путем нажатия кнопки "Настройка обработки cookie" размещенную в нижнем левом углу сайта.');}</script>
+
+<script type="text/plain" data-category="functionality" data-service="Google Translate" src="/scripts/gtranslate/loader.js"></script>
+
+            <!-- Кнопки языков -->
+            <div class="btn-group btn-group-sm" role="group" aria-label="Выбор языка">
+                <a href="#"
+                    onclick="doGTranslate('ru|be');return false;"
+                    class="btn btn-outline-light notranslate fw-semibold"
+                    translate="no"
+                    title="Беларуская мова">БЕ</a>
+                <a href="#"
+                    onclick="doGTranslate('ru|ru');return false;"
+                    class="btn btn-outline-light notranslate fw-semibold active"
+                    translate="no"
+                    title="Русский язык">РУ</a>
+                <a href="#"
+                    onclick="doGTranslate('ru|en');return false;"
+                    class="btn btn-outline-light notranslate fw-semibold"
+                    translate="no"
+                    title="English">EN</a>
+            </div>
+
+        </div>
+</div><main class="flex-grow-1 container-lg shadow-lg bg-light p-1 p-xl-3 d-flex flex-column overflow-hidden">	<div class="row g-1 g-xl-3">		<div class="col-12 col-xl-9 common-page-left-block">						<div class="card shadow h-100 overflow-hidden">				<div class="card-header"> <nav aria-label="Навигация">
+  <ol class="breadcrumb mb-0"><li class="breadcrumb-item"><a href="/">Главная</a></li><li class="breadcrumb-item"><a href="/applicants/spisok-uchascihsia-zachislennyh-na-1-kurs-2026-2027-uchebnogo-goda">Абитуриентам</a></li><li class="breadcrumb-item active" aria-current="page">Список учащихся зачисленных на 1 курс 2026/2027 учебного года</li></ol>
+</nav> </div>				<div class="p-1 p-xl-2 d-flex flex-column gap-1 gap-md-2">																  <div class="entry">
+  <div class="content"><div class="p-1 p-xl-2"><!-- Строгий блок со списками -->
+<div class="card shadow-sm border-0 rounded-0"><!-- Заголовок-акцент -->
+<div class="card-header bg-primary text-white text-center py-4 border-bottom border-5 border-dark">
+<h2 class="h4 fw-bold mb-0 text-uppercase tracking-wide">Списки абитуриентов, прошедших по конкурсу</h2>
+</div>
+<div class="card-body bg-white">
+<div class="row g-4">
+<div class="col-12">
+<div class="p-4 bg-light border-start border-4 border-danger rounded-0"><hr class="border-2 border-primary opacity-50 w-25 mx-auto my-3" />
+<p class="text-center h4 fw-bold text-primary mb-0">Списки абитуриентов, прошедших по конкурсу и зачисленных на 1 курс:</p>
+</div>
+</div>
+<!-- Таблица 1 -->
+<table class="adaptive-table">
+<tbody>
+<tr>
+<td class="table-header" colspan="4">
+<p style="text-align: center;"><strong>5-04-0612-02 Разработка и сопровождение программного обеспечения информационных систем</strong></p>
+<p style="text-align: center;"><em>Техник-программист</em></p>
+</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td>Алёшкина</td>
+<td>Анастасия</td>
+<td>Андреевна</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td>Аноп</td>
+<td>Марк</td>
+<td>Игоревич</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td>Голуб</td>
+<td>Александра</td>
+<td>Эдуардовна</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td>Грод</td>
+<td>Ульяна</td>
+<td>Владимировна</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td>Занемонец</td>
+<td>Ева</td>
+<td>Александровна</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td>Зеленская</td>
+<td>Каролина</td>
+<td>Александровна</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td>Ковалевская</td>
+<td>Елизавета</td>
+<td>Александровна</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td>Крутько</td>
+<td>Екатерина</td>
+<td>Артёмовна</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td>Латышев</td>
+<td>Николай</td>
+<td>Юрьевич</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td>Левина</td>
+<td>Арина</td>
+<td>Сергеевна</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td>Лютаревич</td>
+<td>Ксения</td>
+<td>Александровна</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td>Михаленя</td>
+<td>Евгений</td>
+<td>Владиславович</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td>Надольская</td>
+<td>Арина</td>
+<td>Александровна</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td>Носов</td>
+<td>Дмитрий</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td>Осипенко</td>
+<td>Полина</td>
+<td>Сергеевна</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td>Падьянова</td>
+<td>Алиса</td>
+<td>Олеговна</td>
+</tr>
+<tr>
+<td align="right">17</td>
+<td>Плодунова</td>
+<td>Агния</td>
+<td>Алексеевна</td>
+</tr>
+<tr>
+<td align="right">18</td>
+<td>Покидько</td>
+<td>Егор</td>
+<td>Антонович</td>
+</tr>
+<tr>
+<td align="right">19</td>
+<td>Рагоза</td>
+<td>Арина</td>
+<td>Александровна</td>
+</tr>
+<tr>
+<td align="right">20</td>
+<td>Севко</td>
+<td>Арина</td>
+<td>Васильевна</td>
+</tr>
+<tr>
+<td align="right">21</td>
+<td>Синельников</td>
+<td>Семён</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">22</td>
+<td>Смоленский</td>
+<td>Владислав</td>
+<td>Дмитриевич</td>
+</tr>
+<tr>
+<td align="right">23</td>
+<td>Спартак</td>
+<td>Тимофей</td>
+<td>Денисович</td>
+</tr>
+<tr>
+<td align="right">24</td>
+<td>Толкачёв</td>
+<td>Егор</td>
+<td>Артёмович</td>
+</tr>
+<tr>
+<td align="right">25</td>
+<td>Фурс</td>
+<td>Александра</td>
+<td>Николаевна</td>
+</tr>
+</tbody>
+</table>
+<!-- Таблица 2 -->
+<table class="adaptive-table">
+<tbody>
+<tr>
+<td class="table-header" colspan="4">
+<p style="text-align: center;"><strong>5-04-0713-09 Производство изделий микро- и наноэлектроники</strong></p>
+<p style="text-align: center;"><em>Техник-технолог</em></p>
+</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td>Афанасьев</td>
+<td>Никита</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td>Бабарика</td>
+<td>Данила</td>
+<td>Павлович</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td>Барышевский</td>
+<td>Кирилл</td>
+<td>Витальевич</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td>Беляков</td>
+<td>Никита</td>
+<td>Михайлович</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td>Болотяный</td>
+<td>Егор</td>
+<td>Максимович</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td>Бурачевская</td>
+<td>Ксения</td>
+<td>Алексеевна</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td>Быков</td>
+<td>Роман</td>
+<td>Павлович</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td>Ворошилина</td>
+<td>Мария</td>
+<td>Витальевна</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td>Головач</td>
+<td>София</td>
+<td>Валентиновна</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td>Голуб</td>
+<td>Матвей</td>
+<td>Денисович</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td>Далидович</td>
+<td>Валентина</td>
+<td>Владимировна</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td>Заливайко</td>
+<td>Денис</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td>Ильенко</td>
+<td>Елизавета</td>
+<td>Павловна</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td>Константинович</td>
+<td>Алексей</td>
+<td>Кириллович</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td>Корень</td>
+<td>Игорь</td>
+<td>Владимирович</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td>Лазарева</td>
+<td>Софья</td>
+<td>Алексеевна</td>
+</tr>
+<tr>
+<td align="right">17</td>
+<td>Малявко</td>
+<td>Артём</td>
+<td>Александрович</td>
+</tr>
+<tr>
+<td align="right">18</td>
+<td>Мартынов</td>
+<td>Игорь</td>
+<td>Дмитриевич</td>
+</tr>
+<tr>
+<td align="right">19</td>
+<td>Монич</td>
+<td>Назар</td>
+<td>Львович</td>
+</tr>
+<tr>
+<td align="right">20</td>
+<td>Прищеп</td>
+<td>Никита</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">21</td>
+<td>Седач</td>
+<td>Михаил</td>
+<td>Сергеевич</td>
+</tr>
+<tr>
+<td align="right">22</td>
+<td>Сергей</td>
+<td>Дмитрий</td>
+<td>Владимирович</td>
+</tr>
+<tr>
+<td align="right">23</td>
+<td>Сивенков</td>
+<td>Станислав</td>
+<td>Денисович</td>
+</tr>
+<tr>
+<td align="right">24</td>
+<td>Турибрина</td>
+<td>Алина</td>
+<td>Константиновна</td>
+</tr>
+<tr>
+<td align="right">25</td>
+<td>Усов</td>
+<td>Артём</td>
+<td>Александрович</td>
+</tr>
+<tr>
+<td align="right">26</td>
+<td>Усович</td>
+<td>Ирина</td>
+<td>Олеговна</td>
+</tr>
+<tr>
+<td align="right">27</td>
+<td>Харитонович</td>
+<td>Виктория</td>
+<td>Александровна</td>
+</tr>
+<tr>
+<td align="right">28</td>
+<td>Хмелевский</td>
+<td>Роман</td>
+<td>Владимирович</td>
+</tr>
+<tr>
+<td align="right">29</td>
+<td>Черницкий</td>
+<td>Владислав</td>
+<td>Витальевич</td>
+</tr>
+</tbody>
+</table>
+<!-- Таблица 3 -->
+<table class="adaptive-table">
+<tbody>
+<tr>
+<td class="table-header" colspan="4">
+<p style="text-align: center;"><strong>5-04-0713-08 Техническая эксплуатация технологического оборудования и средств робототехники в автоматизированном производстве</strong></p>
+<p style="text-align: center;"><em>Техник-электроник</em></p>
+</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td>Адикаев</td>
+<td>Георгий</td>
+<td>Дмитриевич</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td>Акулич</td>
+<td>Антон</td>
+<td>Николаевич</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td>Алешка</td>
+<td>Егор</td>
+<td>Владимирович</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td>Альховик</td>
+<td>Глеб</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td>Анейчик</td>
+<td>Кирилл</td>
+<td>Иванович</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td>Герасевич</td>
+<td>Дарья</td>
+<td>Александровна</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td>Жижневский</td>
+<td>Илья</td>
+<td>Юрьевич</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td>Карачун</td>
+<td>Никита</td>
+<td>Витальевич</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td>Каташевич</td>
+<td>Тимофей</td>
+<td>Дмитриевич</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td>Кацубо</td>
+<td>Павел</td>
+<td>Антонович</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td>Кашинский</td>
+<td>Владимир</td>
+<td>Денисович</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td>Каштанова</td>
+<td>Юлиана</td>
+<td>Сергеевна</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td>Климович</td>
+<td>Владислав</td>
+<td>Александрович</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td>Король</td>
+<td>Серафим</td>
+<td>Евгеньевич</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td>Личко</td>
+<td>Юлия</td>
+<td>Олеговна</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td>Лобан</td>
+<td>Роман</td>
+<td>Алексеевич</td>
+</tr>
+<tr>
+<td align="right">17</td>
+<td>Митрахович</td>
+<td>Богдан</td>
+<td>Васильевич</td>
+</tr>
+<tr>
+<td align="right">18</td>
+<td>Мозгунов</td>
+<td>Марк</td>
+<td>Максимович</td>
+</tr>
+<tr>
+<td align="right">19</td>
+<td>Романенко</td>
+<td>Юрий</td>
+<td>Артурович</td>
+</tr>
+<tr>
+<td align="right">20</td>
+<td>Романчик</td>
+<td>Даниил</td>
+<td>Денисович</td>
+</tr>
+<tr>
+<td align="right">21</td>
+<td>Сибильков</td>
+<td>Евгений</td>
+<td>Дмитриевич</td>
+</tr>
+<tr>
+<td align="right">22</td>
+<td>Слесарев</td>
+<td>Роман</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">23</td>
+<td>Тондель</td>
+<td>Данила</td>
+<td>Александрович</td>
+</tr>
+<tr>
+<td align="right">24</td>
+<td>Фурс</td>
+<td>Кирилл</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">25</td>
+<td>Ходосовский</td>
+<td>Захар</td>
+<td>Антонович</td>
+</tr>
+<tr>
+<td align="right">26</td>
+<td>Хотенко</td>
+<td>Никита</td>
+<td>Максимович</td>
+</tr>
+<tr>
+<td align="right">27</td>
+<td>Царев</td>
+<td>Александр</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">28</td>
+<td>Шевчук</td>
+<td>Александр</td>
+<td>Игоревич</td>
+</tr>
+<tr>
+<td align="right">29</td>
+<td>Шостак</td>
+<td>Василий</td>
+<td>Адамович</td>
+</tr>
+<tr>
+<td align="right">30</td>
+<td>Шурлаков</td>
+<td>Семён</td>
+<td>Вадимович</td>
+</tr>
+</tbody>
+</table>
+<!-- Таблица 4 -->
+<table class="adaptive-table">
+<tbody>
+<tr>
+<td class="table-header" colspan="4">
+<p style="text-align: center;"><strong>5-04-0713-10 Техническая эксплуатация мехатронных систем электронного производства</strong></p>
+<p style="text-align: center;"><em>Техник-мехатроник</em></p>
+</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td>Абрамчук</td>
+<td>Даниил</td>
+<td>Сергеевич</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td>Аноп</td>
+<td>Даниил</td>
+<td>Игоревич</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td>Бондарь</td>
+<td>Артём</td>
+<td>Сергеевич</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td>Василевский</td>
+<td>Данила</td>
+<td>Сергеевич</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td>Васильев</td>
+<td>Юрий</td>
+<td>Викторович</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td>Галушко</td>
+<td>Маргарита</td>
+<td>Юрьевна</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td>Горбатенко</td>
+<td>Дмитрий</td>
+<td>Алексеевич</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td>Давыденко</td>
+<td>Дамир</td>
+<td>Сергеевич</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td>Дякович</td>
+<td>Максим</td>
+<td>Николаевич</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td>Евтух</td>
+<td>Илья</td>
+<td>Дмитриевич</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td>Жирневич</td>
+<td>Ренат</td>
+<td>Александрович</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td>Жмачинский</td>
+<td>Никита</td>
+<td>Дмитриевич</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td>Зенкевич</td>
+<td>Иван</td>
+<td>Алексеевич</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td>Зубок</td>
+<td>Глеб</td>
+<td>Игоревич</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td>Игнатьев</td>
+<td>Арсений</td>
+<td>Викторович</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td>Игнатьев</td>
+<td>Денис</td>
+<td>Викторович</td>
+</tr>
+<tr>
+<td align="right">17</td>
+<td>Клекта</td>
+<td>Никита</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">18</td>
+<td>Клюцкий</td>
+<td>Роман</td>
+<td>Александрович</td>
+</tr>
+<tr>
+<td align="right">19</td>
+<td>Колганов</td>
+<td>Андрей</td>
+<td>Евгеньевич</td>
+</tr>
+<tr>
+<td align="right">20</td>
+<td>Корзун</td>
+<td>Егор</td>
+<td>Алексеевич</td>
+</tr>
+<tr>
+<td align="right">21</td>
+<td>Крикун</td>
+<td>Алексей</td>
+<td>Александрович</td>
+</tr>
+<tr>
+<td align="right">22</td>
+<td>Курейчик</td>
+<td>Егор</td>
+<td>Дмитриевич</td>
+</tr>
+<tr>
+<td align="right">23</td>
+<td>Лавров</td>
+<td>Илья</td>
+<td>Алексеевич</td>
+</tr>
+<tr>
+<td align="right">24</td>
+<td>Лихацевич</td>
+<td>Павел</td>
+<td>Викторович</td>
+</tr>
+<tr>
+<td align="right">25</td>
+<td>Ломашко</td>
+<td>Данила</td>
+<td>Сергеевич</td>
+</tr>
+<tr>
+<td align="right">26</td>
+<td>Ломашко</td>
+<td>Кирилл</td>
+<td>Сергеевич</td>
+</tr>
+<tr>
+<td align="right">27</td>
+<td>Лосицкий</td>
+<td>Станислав</td>
+<td>Витальевич</td>
+</tr>
+<tr>
+<td align="right">28</td>
+<td>Лукашонок</td>
+<td>Кирилл</td>
+<td>Александрович</td>
+</tr>
+<tr>
+<td align="right">29</td>
+<td>Никоненко</td>
+<td>Михаил</td>
+<td>Николаевич</td>
+</tr>
+<tr>
+<td align="right">30</td>
+<td>Орешкевич</td>
+<td>Арсений</td>
+<td>Владимирович</td>
+</tr>
+<tr>
+<td align="right">31</td>
+<td>Паныш</td>
+<td>Тимофей</td>
+<td>Сергеевич</td>
+</tr>
+<tr>
+<td align="right">32</td>
+<td>Пестова</td>
+<td>Ульяна</td>
+<td>Сергеевна</td>
+</tr>
+<tr>
+<td align="right">33</td>
+<td>Пятенко</td>
+<td>Иван</td>
+<td>Евгеньевич</td>
+</tr>
+<tr>
+<td align="right">34</td>
+<td>Савостенко</td>
+<td>Алексей</td>
+<td>Сергеевич</td>
+</tr>
+<tr>
+<td align="right">35</td>
+<td>Санько</td>
+<td>Вячеслав</td>
+<td>Дмитриевич</td>
+</tr>
+<tr>
+<td align="right">36</td>
+<td>Серпухов</td>
+<td>Елисей</td>
+<td>Владимирович</td>
+</tr>
+<tr>
+<td align="right">37</td>
+<td>Солодухин</td>
+<td>Александр</td>
+<td>Владимирович</td>
+</tr>
+<tr>
+<td align="right">38</td>
+<td>Тимофеев</td>
+<td>Артём</td>
+<td>Витальевич</td>
+</tr>
+<tr>
+<td align="right">39</td>
+<td>Трофимчик</td>
+<td>Захар</td>
+<td>Александрович</td>
+</tr>
+<tr>
+<td align="right">40</td>
+<td>Фалеев</td>
+<td>Макар</td>
+<td>Максимович</td>
+</tr>
+<tr>
+<td align="right">41</td>
+<td>Филипеня</td>
+<td>Максим</td>
+<td>Евгеньевич</td>
+</tr>
+<tr>
+<td align="right">42</td>
+<td>Филипчик</td>
+<td>Вячеслав</td>
+<td>Иванович</td>
+</tr>
+<tr>
+<td align="right">43</td>
+<td>Фирсов</td>
+<td>Данила</td>
+<td>Алексеевич</td>
+</tr>
+<tr>
+<td align="right">44</td>
+<td>Харловский</td>
+<td>Николай</td>
+<td>Маратович</td>
+</tr>
+<tr>
+<td align="right">45</td>
+<td>Чедия</td>
+<td>Павел</td>
+<td>Давидович</td>
+</tr>
+<tr>
+<td align="right">46</td>
+<td>Шейфер</td>
+<td>Александр</td>
+<td>Максимович</td>
+</tr>
+<tr>
+<td align="right">47</td>
+<td>Шиньков</td>
+<td>Даниил</td>
+<td>Алексеевич</td>
+</tr>
+<tr>
+<td align="right">48</td>
+<td>Щерба</td>
+<td>Никита</td>
+<td>Русланович</td>
+</tr>
+<tr>
+<td align="right">49</td>
+<td>Яковенко</td>
+<td>Тимофей</td>
+<td>Витальевич</td>
+</tr>
+<tr>
+<td align="right">50</td>
+<td>Ярош</td>
+<td>Владислав</td>
+<td>Павлович</td>
+</tr>
+</tbody>
+</table>
+<!-- Таблица 5 -->
+<table class="adaptive-table">
+<tbody>
+<tr>
+<td class="table-header" colspan="4">
+<p style="text-align: center;"><strong>5-04-0712-01 Монтаж и эксплуатация электрооборудования</strong></p>
+<p style="text-align: center;"><em>Техник-электрик</em></p>
+</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td>Аксенюк</td>
+<td>Владислав</td>
+<td>Александрович</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td>Башинский</td>
+<td>Ярослав</td>
+<td>Николаевич</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td>Белов</td>
+<td>Игнат</td>
+<td>Михайлович</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td>Бельский</td>
+<td>Владимир</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td>Бунас</td>
+<td>Михаил</td>
+<td>Юрьевич</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td>Бурый</td>
+<td>Михаил</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td>Вашкевич</td>
+<td>Никита</td>
+<td>Алексеевич</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td>Войтик</td>
+<td>Роман</td>
+<td>Алексеевич</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td>Гапов</td>
+<td>Артём</td>
+<td>Витальевич</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td>Долматов</td>
+<td>Артём</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td>Драер</td>
+<td>Максим</td>
+<td>Юрьевич</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td>Емельненко</td>
+<td>Алексей</td>
+<td>Артёмович</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td>Ешманский</td>
+<td>Виктор</td>
+<td>Витальевич</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td>Иванец</td>
+<td>Никита</td>
+<td>Геннадьевич</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td>Казакевич</td>
+<td>Алексей</td>
+<td>Сергеевич</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td>Ковалев</td>
+<td>Матвей</td>
+<td>Витальевич</td>
+</tr>
+<tr>
+<td align="right">17</td>
+<td>Колтович</td>
+<td>Арсений</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">18</td>
+<td>Коньков</td>
+<td>Дмитрий</td>
+<td>Павлович</td>
+</tr>
+<tr>
+<td align="right">19</td>
+<td>Корнилов</td>
+<td>Артём</td>
+<td>Владимирович</td>
+</tr>
+<tr>
+<td align="right">20</td>
+<td>Крень</td>
+<td>Арсений</td>
+<td>Русланович</td>
+</tr>
+<tr>
+<td align="right">21</td>
+<td>Куратчик</td>
+<td>Сергей</td>
+<td>Валерьевич</td>
+</tr>
+<tr>
+<td align="right">22</td>
+<td>Лалин</td>
+<td>Алексей</td>
+<td>Павлович</td>
+</tr>
+<tr>
+<td align="right">23</td>
+<td>Леонов</td>
+<td>Владислав</td>
+<td>Денисович</td>
+</tr>
+<tr>
+<td align="right">24</td>
+<td>Логойко</td>
+<td>Андрей</td>
+<td>Юрьевич</td>
+</tr>
+<tr>
+<td align="right">25</td>
+<td>Лущекин</td>
+<td>Тимофей</td>
+<td>Александрович</td>
+</tr>
+<tr>
+<td align="right">26</td>
+<td>Макаренко</td>
+<td>Тимур</td>
+<td>Артёмович</td>
+</tr>
+<tr>
+<td align="right">27</td>
+<td>Малиновский</td>
+<td>Виталий</td>
+<td>Юрьевич</td>
+</tr>
+<tr>
+<td align="right">28</td>
+<td>Марковский</td>
+<td>Денис</td>
+<td>Алексеевич</td>
+</tr>
+<tr>
+<td align="right">29</td>
+<td>Меленяко</td>
+<td>Андрей</td>
+<td>Александрович</td>
+</tr>
+<tr>
+<td align="right">30</td>
+<td>Мигун</td>
+<td>Максим</td>
+<td>Сергеевич</td>
+</tr>
+<tr>
+<td align="right">31</td>
+<td>Мишуров</td>
+<td>Павел</td>
+<td>Юрьевич</td>
+</tr>
+<tr>
+<td align="right">32</td>
+<td>Нагорный</td>
+<td>Пётр</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">33</td>
+<td>Петухов</td>
+<td>Александр</td>
+<td>Алексеевич</td>
+</tr>
+<tr>
+<td align="right">34</td>
+<td>Почалов</td>
+<td>Артём</td>
+<td>Викторович</td>
+</tr>
+<tr>
+<td align="right">35</td>
+<td>Савельев</td>
+<td>Илья</td>
+<td>Дмитриевич</td>
+</tr>
+<tr>
+<td align="right">36</td>
+<td>Савченко</td>
+<td>Никита</td>
+<td>Максимович</td>
+</tr>
+<tr>
+<td align="right">37</td>
+<td>Савченко</td>
+<td>Эль</td>
+<td>Дмитриевич</td>
+</tr>
+<tr>
+<td align="right">38</td>
+<td>Сахаров</td>
+<td>Даниил</td>
+<td>Максимович</td>
+</tr>
+<tr>
+<td align="right">39</td>
+<td>Сачёк</td>
+<td>Егор</td>
+<td>Валерьевич</td>
+</tr>
+<tr>
+<td align="right">40</td>
+<td>Свистун</td>
+<td>Тимофей</td>
+<td>Дмитриевич</td>
+</tr>
+<tr>
+<td align="right">41</td>
+<td>Скородумов</td>
+<td>Никита</td>
+<td>Васильевич</td>
+</tr>
+<tr>
+<td align="right">42</td>
+<td>Совко</td>
+<td>Матвей</td>
+<td>Викторович</td>
+</tr>
+<tr>
+<td align="right">43</td>
+<td>Тельпук</td>
+<td>Дмитрий</td>
+<td>Владимирович</td>
+</tr>
+<tr>
+<td align="right">44</td>
+<td>Томкович</td>
+<td>Максим</td>
+<td>Денисович</td>
+</tr>
+<tr>
+<td align="right">45</td>
+<td>Турищев</td>
+<td>Богдан</td>
+<td>Викторович</td>
+</tr>
+<tr>
+<td align="right">46</td>
+<td>Хотин</td>
+<td>Никикта</td>
+<td>Алексеевич</td>
+</tr>
+<tr>
+<td align="right">47</td>
+<td>Шкель</td>
+<td>Тимофей</td>
+<td>Николаевич</td>
+</tr>
+<tr>
+<td align="right">48</td>
+<td>Шрамко</td>
+<td>Михаил</td>
+<td>Ильич</td>
+</tr>
+<tr>
+<td align="right">49</td>
+<td>Шукан</td>
+<td>Даниил</td>
+<td>Андреевич</td>
+</tr>
+<tr>
+<td align="right">50</td>
+<td>Юдо</td>
+<td>Станислав</td>
+<td>Павлович</td>
+</tr>
+</tbody>
+</table>
+<!-- Таблица 6 (с ОПФР) -->
+<table class="adaptive-table">
+<tbody>
+<tr>
+<td class="table-header" colspan="4">
+<p style="text-align: center;"><strong>5-04-0612-02 Разработка и сопровождение программного обеспечения информационных систем (с ОПФР: нарушения зрения, слуха, речи, опорно-двигательного аппарата, расстройство аутистического спектра)</strong></p>
+<p style="text-align: center;"><em>Техник-программист</em></p>
+</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td>Железко</td>
+<td>Александр</td>
+<td>Алексеевич</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td>Клыга</td>
+<td>Матвей</td>
+<td>Сергеевич</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td>Колыбенко</td>
+<td>Оксана</td>
+<td>Олеговна</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td>Лабаза</td>
+<td>Виталий</td>
+<td>Сергеевич</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td>Сермяжко</td>
+<td>Матвей</td>
+<td>Владимирович</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td>Ткаченя</td>
+<td>Илья</td>
+<td>Павлович</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td>Удовенко</td>
+<td>Глеб</td>
+<td>Дмитриевич</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td>Шарамета</td>
+<td>Даниил</td>
+<td>Максимович</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td>Шкробот</td>
+<td>Назар</td>
+<td>Владимирович</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td>Юхнович</td>
+<td>Эмилия</td>
+<td>Витальевна</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></div>
+  <div class="d-flex flex-column gap-1 gap-md-2"></div>
+</div>				    																																																																	                          				</div>				  				<div>				<hr class="m-0"></hr>				<div class="py-1 py-xl-2 px-2"><span class="fw-semibold">поделиться в:</span> <div class="ww_share" data-buttons="telegram,viber,facebook,vkontakte,odnoklassniki,copy"></div> <script type="text/javascript" src="/scripts/share.js" defer></script></div>				</div>			</div>		 	 </div>  <div class="col-12 col-xl-3 common-page-right-block">  		<div class="card shadow">
+	<div class="card-header">Ещё в этом разделе</div>
+	<div class="card-body section-menu-card"><ul class="level_0 parent_active"><li class="parent_active parent"><a href="/applicants/spisok-uchascihsia-zachislennyh-na-1-kurs-2026-2027-uchebnogo-goda" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Абитуриентам</a><ul class="level_1 parent_active"><li class="active"><a href="/applicants/spisok-uchascihsia-zachislennyh-na-1-kurs-2026-2027-uchebnogo-goda" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Список учащихся зачисленных на 1 курс 2026/2027 учебного года</a></li><li><a href="/applicants/prohodnye-bally-v-2026-godu" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Проходные баллы в 2026 году</a></li><li><a href="/applicants/celevaia-podgotovka" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Целевая подготовка</a></li><li><a href="/applicants/dokumenty-predostavliaemye-v-priemnuiu-komissiiu" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Документы, предоставляемые в приемную комиссию</a></li><li><a href="/applicants/priem-inostrannyh-grajdan" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Прием иностранных граждан</a></li><li><a href="/applicants/priemnaia-komissiia" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Приемная комиссия</a></li><li><a href="/applicants/onlain-karta-kolledjei-g-minska" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Онлайн карта колледжей г. Минска</a></li><li><a href="/applicants/accelerated-university-program" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Продолжение обучения по сокращенной форме (ВУЗ)</a></li><li><a href="/about/facilities" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Материально-техническая база</a></li></ul></li></ul>	</div>
+</div>
+
+<style>
+/* Убрать стандартные маркеры */
+.section-menu-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Активный - синий */
+.section-menu-card li.active::before {
+  color: #0d6efd !important;
+}
+
+/* Активный пункт */
+.section-menu-card li.active::before {
+  content: "\f192" !important;
+  font-family: "Font Awesome 7 Free";
+  font-weight: 400;
+  color: #0d6efd !important;
+  margin-right: 8px;
+}
+
+
+.section-menu-card ul.level_0 > li.parent::before {
+  content: "\f138";
+  font-family: "Font Awesome 7 Free";
+  font-weight: 900;
+  font-size: 0.9rem;
+  margin-right: 8px;
+  color: #6c757d;
+}
+
+.section-menu-card ul.level_1 {
+  padding-left: 0 !important;
+}
+
+.section-menu-card ul.level_2,
+.section-menu-card ul.level_3 {
+  padding-left: 20px;
+}
+
+.section-menu-card ul.level_1 > li::before,
+.section-menu-card ul.level_2 > li::before,
+.section-menu-card ul.level_3 > li::before {
+  content: "\f111";
+  font-family: "Font Awesome 7 Free";
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-right: 8px;
+  color: #6c757d;
+}
+</style>    </div>		
+
+
+
+
+		</div>	    </main><footer class="bg-primary-darker text-white pb-4" style="box-shadow: inset 0px 20px 15px 0px rgba(0, 0, 0, 0.15);">  <div id="el-footer" class="container-fluid lay-footer " >    <div class="container mt-4">      <div class="row">        <div class="col-12 col-lg-8 mb-3 mb-lg-0"><div class="d-flex flex-row overflow-hidden align-items-center mb-2">
+  <img class="d-flex align-items-center justify-content-center pe-2" src="/files/02049/img/favicon.webp"
+    style="height: 2.5rem !important; width: auto !important;" />
+  <span class="d-flex align-items-center justify-content-start flex-grow-1 fw-semibold fs-fluid-heading-sm-md">
+    © УО "Минский государственный колледж цифровых технологий", 2025
+  </span>
+</div>
+
+<div class="mb-2">
+  <span class="fw-semibold"><i class="fa-solid fa-map-location-dot"></i> Адрес: </span>220108, Республика Беларусь, г. Минск, ул. Казинца, 91<br>
+  <span class="fw-semibold"><i class="fa-solid fa-phone"></i> Телефон: </span><a class="link-light" href="tel:+375173741162">+375 17 374 11 62</a><br>
+  <span class="fw-semibold"><i class="fa-solid fa-envelope"></i> E-mail: </span><a class="link-light"
+    href="mailto:mgke@minskedu.gov.by">mgke@minskedu.gov.by</a><br>
+  <span class="fw-semibold"><i class="fa-solid fa-school-circle-check"></i> Регистрационный номер в ГИР: </span>1141101894
+</div>
+
+<div>
+
+<i class="fa-solid fa-user"></i>
+  <a class="fw-semibold link-light" title="Политика в отношении обработки персональных данных"
+    href="/about/personal-data-policy" rel="noopener"> Политика в отношении обработки
+    персональных данных</a><br/>
+	<i class="fa-solid fa-cookie-bite"></i>
+  <a class="fw-semibold link-light" title="Политика в отношении обработки cookie"
+    href="/about/cookie-policy" rel="noopener">Политика в отношении обработки cookie</a><br/>
+	<i class="fa-solid fa-code"></i> Макет разработан УВЦ колледжа<br/>
+	на платформе <img src="/files/02049/img/web-masterskaya-icon.webp" style="height: 1.25rem"></img>
+  <a class="fw-semibold link-light" href="http://веб-мастерская.бел" target="_blank">ВЕБ-МАСТЕРСКАЯ.БЕЛ</a>
+</div></div>        <div class="col-12 col-lg-4">          <div class="row mb-lg-2">            <div class="col"><form method="get" action="/services/search" name="site_search_head" class="d-flex ms-2" role="search">
+  <input type="search" name="text" class="form-control me-2" required="required" placeholder="Поиск по сайту" />
+  <input type="hidden" name="searchid" value="7926440" />
+  <input type="hidden" name="web" value="0" />
+  <button class="btn btn-light" type="submit" aria-label="Искать">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+</form></div>          </div>          <div class="row">            <div class="col d-flex align-items-center justify-content-center justify-content-md-start">				<div class="d-flex fs-fluid-heading-lg-xl"><a href="https://t.me/mgkelektron"><i class="fa-brands fa-telegram text-white"></i></a>
+<a href="https://www.youtube.com/@user-fc9jr7yp4l/featured"><i class="fa-brands fa-youtube text-white"></i></a>
+<a href="https://vk.com/public179671335"><i class="fa-brands fa-vk text-white"></i></a></div>			</div>			            <div class="col d-none d-md-flex align-items-center justify-content-end">              <span class="yandex_informer rounded shadow" id="yaInformerWrapper"> <script type="text/plain" data-category="analytics" data-service="Яндекс.Метрика"> document.getElementById('yaInformerWrapper').innerHTML = `<!-- Yandex.Metrika informer -->
+<a href="https://metrika.yandex.ru/stat/?id=97385460&amp;from=informer" target="_blank" rel="nofollow">
+    <img src="https://informer.yandex.ru/informer/97385460/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
+         style="width:88px; height:31px; border:0;"
+         alt="Яндекс.Метрика"
+         title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"
+        class="ym-advanced-informer rounded" data-cid="97385460" data-lang="ru"/>
+</a>
+<!-- /Yandex.Metrika informer -->`; </script> </span>            </div>          </div>		  <div class="row">		  		<div>
+<i class="fa-regular fa-map"></i>
+<a class="fw-semibold link-light" title="Карта сайта" href="/services/site-map" rel="noopener">Карта сайта</a>
+</div>		  </div>        </div>      </div>    </div>  </div></footer><button id="scrollToTop" class="btn btn-primary position-fixed bottom-0 end-0 m-3 shadow z-10" style="display: none;">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+window.addEventListener('scroll', function() {
+    const btn = document.getElementById('scrollToTop');
+    if (window.scrollY > 300) {
+        btn.style.display = 'block';
+    } else {
+        btn.style.display = 'none';
+    }
+});
+
+document.getElementById('scrollToTop').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script><script type="module" src="/scripts/cookieconsent/loader.js"></script> <button type="button" id="cc-floating-toggle" data-cc="show-preferencesModal" title="Настройка обработки cookie"></button>
+</body>
+</html>

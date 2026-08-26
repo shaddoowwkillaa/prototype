@@ -1,37 +1,62 @@
 [
-
-    {
-      "id": "brgu_spiski",
-      "university": "БрГУ им. А.С. Пушкина",
-      "url": "https://www.brsu.by/be/abi/spiski-zachislennyh",
-      "type": "pdf",
-      "year": 2026,
-      "description": "Раздел со списками зачисленных (пока оглавление)"
-    },
-    {
-      "id": "brgu_spiski",
-      "university": "БрГУ им. А.С. Пушкина",
-      "url": "https://www.brsu.by/be/abi/spiski-zachislennyh",
-      "type": "page_with_pdfs",
-      "pdf_filter": "abiturient",
-      "max_pdfs": 10,
-      "year": 2026,
-      "description": "Списки зачисленных (PDF из раздела)"
-    },
-    {
-        "id": "ggmk_spiski",
-        "university": "Гродненский государственный медицинский колледж",
-        "url": "https://ggmk.by/spisok-zachislennyh.html",
-        "type": "html",
-        "year": 2026,
-        "description": "Списки зачисленных"
-    },
-    {
-      "id": "bseu_spiski",
-      "university": "БГЭУ",
-      "url": "https://bseu.by/russian/abiturient/docs/listdfo.pdf",
-      "type": "pdf",
-      "year": 2026,
-      "description": "Список зачисленных 2026"
-    }
-  ]
+  {
+    "id": "brgu_spiski",
+    "university": "БрГУ им. А.С. Пушкина",
+    "url": "https://www.brsu.by/be/abi/spiski-zachislennyh",
+    "type": "pdf",
+    "year": 2026,
+    "description": "Раздел со списками зачисленных (пока оглавление)"
+  },
+  {
+    "id": "brgu_spiski",
+    "university": "БрГУ им. А.С. Пушкина",
+    "url": "https://www.brsu.by/be/abi/spiski-zachislennyh",
+    "type": "page_with_pdfs",
+    "pdf_filter": "abiturient",
+    "max_pdfs": 10,
+    "year": 2026,
+    "description": "Списки зачисленных (PDF из раздела)"
+  },
+  {
+    "id": "ggmk_spiski",
+    "university": "Гродненский государственный медицинский колледж",
+    "url": "https://ggmk.by/spisok-zachislennyh.html",
+    "type": "html",
+    "year": 2026,
+    "description": "Списки зачисленных"
+  },
+  {
+    "id": "bseu_spiski",
+    "university": "БГЭУ",
+    "url": "https://bseu.by/russian/abiturient/docs/listdfo.pdf",
+    "type": "pdf",
+    "year": 2026,
+    "description": "Список зачисленных 2026"
+  },
+  {
+    "id": "source_5",
+    "university": "МГКЦТ",
+    "url": "https://mgkct.minskedu.gov.by/applicants/spisok-uchascihsia-zachislennyh-na-1-kurs-2026-2027-uchebnogo-goda",
+    "type": "html",
+    "year": 2026,
+    "description": "Списки зачисленных на 1 курс"
+  },
+  {
+    "id": "source_6",
+    "university": "МГУ Кулешова",
+    "url": "https://abit.msu.by/uploads/documents/general/a76ba499f7c9ca81a1e2.pdf",
+    "type": "pdf",
+    "year": 2026,
+    "description": "Списки зачисленных"
+  },
+  {
+    "id": "source_7",
+    "university": "БГУФК",
+    "url": "https://www.sportedu.by/spiski-na-zachislenie/",
+    "type": "page_with_pdfs",
+    "year": 2026,
+    "description": "списки поступивших",
+    "pdf_filter": "abiturient",
+    "max_pdfs": 10
+  }
+]
